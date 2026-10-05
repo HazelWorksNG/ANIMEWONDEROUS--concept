@@ -1,0 +1,634 @@
+/* =========================================================
+   ANIMEWONDEROUS
+   Main stylesheet
+   HTML5 + CSS3
+   No frameworks / no external stylesheets
+========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+========================================================= */
+
+:root {
+    /* Brand colors */
+    --color-navy: #07162f;
+    --color-navy-dark: #041329;
+    --color-navy-light: #081a37;
+
+    --color-red: #f51e31;
+    --color-red-light: #ff3344;
+    --color-red-dark: #c91427;
+
+    /* Accent colors */
+    --accent-cyan: #19d9ff;
+    --accent-gold: #f4c64e;
+
+    /* Neutrals */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-ink: #0b1729;
+
+    --color-muted: #6c7685;
+    --color-muted-light: #8993a0;
+
+    --color-border: #e1e5ea;
+    --color-border-light: #e2e6eb;
+
+    --color-light: #f3f5f8;
+    --color-light-alt: #f5f6f8;
+
+    /* Light text on dark backgrounds */
+    --text-light: #d7e1ef;
+    --text-white-muted: #dce4ee;
+    --text-dark-muted: #aebbd0;
+
+    /* Layout */
+    --container-width: 1160px;
+    --container-gap: 48px;
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 9px;
+    --radius-lg: 14px;
+    --radius-xl: 17px;
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-red: 0 10px 24px rgb(245 30 49 / 19%);
+    --shadow-card: 0 12px 30px rgb(0 0 0 / 40%);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+}
+
+
+/* =========================================================
+   2. RESET / BASE
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background: var(--color-white);
+    color: var(--color-ink);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   3. SHARED LAYOUT
+========================================================= */
+
+.inner {
+    width: min(
+        var(--container-width),
+        calc(100% - var(--container-gap))
+    );
+
+    margin-inline: auto;
+}
+
+section.light {
+    background: var(--color-white);
+}
+
+.label {
+    margin-bottom: 12px;
+
+    color: var(--color-red);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+
+/* =========================================================
+   4. TYPOGRAPHY
+========================================================= */
+
+h2 {
+    color: var(--color-navy);
+
+    font-family:
+        "Arial Narrow",
+        Impact,
+        Haettenschweiler,
+        sans-serif;
+
+    font-size: 44px;
+    line-height: 1;
+}
+
+.muted {
+    color: var(--color-muted);
+
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   5. HEADER
+========================================================= */
+
+.header {
+    position: fixed;
+    z-index: 20;
+    top: 14px;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    width: min(
+        1240px,
+        calc(100% - 30px)
+    );
+
+    height: 64px;
+    padding: 9px 18px;
+
+    transform: translateX(-50%);
+
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: var(--radius-md);
+
+    background: rgb(4 19 41 / 94%);
+
+    backdrop-filter: blur(15px);
+
+    color: var(--color-white);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    min-width: max-content;
+}
+
+.mark {
+    color: var(--color-red);
+    font-size: 30px;
+}
+
+.brand strong {
+    display: block;
+
+    font-family:
+        "Arial Narrow",
+        Impact,
+        Haettenschweiler,
+        sans-serif;
+
+    font-size: 15px;
+}
+
+.brand small {
+    display: block;
+
+    color: #b9c4d4;
+
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+    margin: auto;
+}
+
+.nav a {
+    position: relative;
+
+    padding: 23px 0;
+
+    color: #bdc8d8;
+
+    font-size: 11px;
+}
+
+.nav a.active::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+
+    height: 2px;
+
+    background: var(--color-red);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon {
+    color: var(--color-white);
+}
+
+.menu {
+    display: none;
+
+    margin-left: auto;
+
+    color: var(--color-white);
+    font-size: 22px;
+}
+
+/* =========================================
+   MOBILE NAVIGATION DROPDOWN
+========================================= */
+
+.menu {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+/* =========================================================
+   6. BUTTONS
+========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 19px;
+
+    border-radius: var(--radius-pill);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn.red {
+    background: var(--color-red);
+    color: var(--color-white);
+
+    box-shadow: var(--shadow-red);
+}
+
+.btn.red:hover {
+    background: var(--color-red-light);
+}
+
+.btn.outline {
+    border: 1px solid rgb(255 255 255 / 53%);
+    color: var(--color-white);
+}
+
+.btn.outline:hover {
+    background: var(--color-white);
+    color: var(--color-navy);
+}
+
+
+/* =========================================================
+   15. FOOTER
+========================================================= */
+
+.footer {
+    padding: 28px 0;
+
+    background: #06142b;
+    color: var(--color-white);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 25px;
+    align-items: center;
+
+    width: min(
+        var(--container-width),
+        calc(100% - var(--container-gap))
+    );
+
+    margin-inline: auto;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.links a {
+    color: var(--text-dark-muted);
+    font-size: 9px;
+}
+
+.social {
+    font-size: 13px;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+
+    color: #6d7d95;
+
+    font-size: 7px;
+    text-align: right;
+}
+
+
+/* =========================================================
+   16. TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+    z-index: 50;
+    right: 18px;
+    bottom: 18px;
+
+    padding: 13px 17px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-navy);
+    color: var(--color-white);
+
+    font-size: 10px;
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   17. TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav {
+        gap: 14px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .event-grid,
+    .shop-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .community-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .polaroids {
+        display: none;
+    }
+
+    .ticket-card {
+        grid-template-columns: 1fr;
+    }
+
+    .collab-grid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .actions {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+    }
+
+    .nav {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        right: 1rem;
+        left: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        padding: 0.75rem;
+
+        background: rgba(7, 22, 47, 0.97);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+
+        box-shadow: var(--shadow-lg);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        pointer-events: none;
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        z-index: 1000;
+    }
+
+
+    /* Open state */
+    .nav.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+
+    .nav a {
+        width: 100%;
+        padding: 0.9rem 1rem;
+
+        border-radius: var(--radius-sm);
+
+        color: var(--text-light);
+        text-decoration: none;
+
+        transition:
+            background 0.2s ease,
+            color 0.2s ease;
+    }
+
+
+    .nav a:hover,
+    .nav a.active {
+        background: rgba(245, 30, 49, 0.12);
+        color: var(--color-red);
+    }
+
+}
+
+/* =========================================================
+   18. MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .header {
+        top: 7px;
+
+        width: calc(100% - 14px);
+        height: 56px;
+    }
+
+    .nav,
+    .actions {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .hero {
+        height: 680px;
+    }
+
+    .hero-content {
+        width: calc(100% - 38px);
+        margin-top: 60px;
+    }
+
+    .jp {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: clamp(49px, 15vw, 78px);
+        letter-spacing: -2px;
+    }
+
+    .hero h1 .redword {
+        transform: translateX(15px);
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .inner {
+        width: calc(100% - 34px);
+    }
+
+    .event,
+    .shop,
+    .community,
+    .tickets,
+    .about {
+        padding-block: 52px;
+    }
+
+    .community-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        margin-top: 20px;
+    }
+
+    .find-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 18px;
+
+        padding-block: 30px;
+    }
+
+    .find h2 {
+        font-size: 31px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .copyright {
+        text-align: left;
+    }
+}

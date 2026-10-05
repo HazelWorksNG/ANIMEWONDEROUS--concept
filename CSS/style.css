@@ -1,0 +1,744 @@
+/* =========================================================
+   7. HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 760px;
+
+    overflow: hidden;
+
+    background: var(--color-navy);
+    color: var(--color-white);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #020d20f5 0%,
+            #06132bc4 40%,
+            #06132b1a 100%
+        ),
+        url("assets/hero.jpg") center / cover;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 74% 27%,
+            rgb(25 217 255 / 14%),
+            transparent 22%
+        ),
+        linear-gradient(
+            0deg,
+            rgb(7 22 47 / 85%),
+            transparent 40%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(
+        var(--container-width),
+        calc(100% - var(--container-gap))
+    );
+
+    margin: 65px auto 0;
+}
+
+.jp {
+    position: absolute;
+    top: 20px;
+    left: -35px;
+
+    color: var(--color-red);
+
+    writing-mode: vertical-rl;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+.kicker {
+    margin-bottom: 13px;
+
+    color: #d9e1ed;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    max-width: 700px;
+
+    font-family:
+        "Comic Sans MS",
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
+
+    font-size: clamp(62px, 8vw, 112px);
+    line-height: 0.87;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero h1 .redword {
+    color: var(--color-red);
+    transform: translateX(40px);
+}
+
+.copy {
+    margin: 26px 0 21px;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 9px;
+}
+
+.scroll {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 50%;
+
+    color: var(--text-white-muted);
+
+    transform: translateX(-50%);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   8. EVENT SECTION
+========================================================= */
+
+.event {
+    padding: 72px 0;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.meta {
+    display: flex;
+    margin: 25px 0;
+}
+
+.meta > div {
+    display: flex;
+    gap: 9px;
+
+    margin-right: 28px;
+    padding-right: 28px;
+
+    border-right: 1px solid #e0e4e9;
+}
+
+.meta > div:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
+}
+
+.meta b {
+    color: var(--color-red);
+    font-size: 20px;
+}
+
+.meta small {
+    display: block;
+
+    color: var(--color-muted-light);
+
+    font-size: 8px;
+}
+
+.meta span {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.count {
+    display: flex;
+    gap: 7px;
+
+    margin-bottom: 22px;
+}
+
+.count div {
+    width: 68px;
+
+    padding: 9px;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--color-light-alt);
+
+    text-align: center;
+}
+
+.count strong {
+    display: block;
+
+    color: var(--color-red);
+
+    font-family:
+        "Arial Narrow",
+        Impact,
+        Haettenschweiler,
+        sans-serif;
+
+    font-size: 22px;
+}
+
+.count small {
+    color: var(--color-muted-light);
+    font-size: 7px;
+}
+
+.event-photo {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    min-height: 300px;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-navy),
+            #164c85 48%,
+            #ed253f
+        );
+
+    color: var(--color-white);
+
+    text-align: center;
+}
+
+.event-photo::before {
+    content: "";
+
+    position: absolute;
+    inset: 20px;
+
+    border: 1px solid rgb(255 255 255 / 22%);
+
+    transform: rotate(-5deg);
+}
+
+.event-photo b {
+    font-family:
+        "Arial Narrow",
+        Impact,
+        Haettenschweiler,
+        sans-serif;
+
+    font-size: 52px;
+    line-height: 0.9;
+
+    transform: rotate(-5deg);
+}
+
+.event-photo small {
+    position: absolute;
+    bottom: 12px;
+
+    color: rgb(255 255 255 / 67%);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   9. SHOP
+========================================================= */
+
+.shop {
+    padding: 10px 0 75px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 235px 1fr;
+    gap: 35px;
+}
+
+.shop h2 {
+    font-size: 40px;
+}
+
+.shop h2 em {
+    color: var(--color-red);
+    font-style: normal;
+}
+
+.shop .btn {
+    margin-top: 17px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.product {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    background: var(--color-white);
+}
+
+.pic {
+    display: grid;
+    place-items: center;
+
+    height: 175px;
+
+    background: var(--color-black);
+    color: var(--color-white);
+
+    font-family:
+        "Arial Narrow",
+        Impact,
+        Haettenschweiler,
+        sans-serif;
+
+    font-size: 22px;
+}
+
+.p1 {
+    background: linear-gradient(135deg, #555, #111 65%);
+}
+
+.p2 {
+    background: linear-gradient(135deg, #e84251, #28101a 65%);
+}
+
+.p3 {
+    background: linear-gradient(135deg, #c07b55, #552735 65%);
+}
+
+.p4 {
+    background: linear-gradient(135deg, #111, #641727 65%);
+}
+
+.product h3 {
+    margin: 9px 10px 3px;
+
+    font-size: 9px;
+}
+
+.product p {
+    margin: 0 10px 11px;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.cart {
+    position: absolute;
+    right: 9px;
+    bottom: 9px;
+
+    color: var(--color-red);
+}
+
+
+/* =========================================================
+   10. COMMUNITY
+========================================================= */
+
+.community {
+    position: relative;
+
+    padding: 78px 0;
+
+    overflow: hidden;
+
+    background: var(--color-navy);
+    color: var(--color-white);
+}
+
+.community::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #07162fef,
+            #07162fba,
+            #07162f55
+        ),
+        url("assets/community.jpg") center / cover;
+
+    opacity: 0.75;
+}
+
+.community-grid {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 1.05fr 1fr 0.55fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.community .label {
+    color: var(--accent-cyan);
+}
+
+.community h2 {
+    color: var(--color-white);
+
+    font-family:
+        "Comic Sans MS",
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
+
+    font-size: 47px;
+}
+
+.community h2 span {
+    color: var(--color-red);
+}
+
+.community p {
+    max-width: 390px;
+    margin: 18px 0;
+
+    color: #c8d3e2;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.features div {
+    display: flex;
+    gap: 9px;
+}
+
+.features b {
+    color: var(--accent-cyan);
+    font-size: 19px;
+}
+
+.features strong {
+    display: block;
+    font-size: 10px;
+}
+
+.features span {
+    color: var(--text-dark-muted);
+    font-size: 8px;
+}
+
+.polaroids {
+    position: relative;
+    height: 220px;
+}
+
+.polaroid {
+    position: absolute;
+
+    display: grid;
+    place-items: center;
+
+    width: 110px;
+    height: 150px;
+
+    border: 5px solid var(--color-white);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f52a3c,
+            #1a4b83
+        );
+
+    box-shadow: var(--shadow-card);
+
+    color: var(--color-white);
+
+    text-align: center;
+
+    font-family:
+        "Arial Narrow",
+        Impact,
+        Haettenschweiler,
+        sans-serif;
+}
+
+.polaroid.a {
+    top: 0;
+    right: 8px;
+
+    transform: rotate(9deg);
+}
+
+.polaroid.b {
+    top: 25px;
+    right: 72px;
+
+    transform: rotate(-7deg);
+}
+
+.polaroid.c {
+    top: 55px;
+    right: 25px;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================================
+   11. COLLABORATIONS
+========================================================= */
+
+.collabs {
+    padding: 25px 0;
+
+    border-top: 1px solid rgb(255 255 255 / 8%);
+
+    background: var(--color-navy-light);
+    color: var(--color-white);
+}
+
+.collab-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.collabs .label {
+    margin-bottom: 4px;
+    color: var(--accent-cyan);
+}
+
+.collabs p {
+    max-width: 430px;
+
+    color: var(--text-dark-muted);
+
+    font-size: 9px;
+}
+
+.collabs .dark {
+    margin-top: 9px;
+
+    padding: 8px 13px;
+
+    background: var(--color-white);
+    color: var(--color-navy);
+
+    font-size: 9px;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.logos small {
+    font-size: 6px;
+}
+
+.logos i {
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   12. FIND YOUR PEOPLE
+========================================================= */
+
+.find {
+    position: relative;
+
+    min-height: 170px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #081a37aa,
+            #081a3730
+        ),
+        url("assets/find.jpg") center / cover;
+
+    color: var(--color-white);
+}
+
+.find-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 170px;
+}
+
+.find h2 {
+    color: var(--color-white);
+
+    font-family:
+        "Comic Sans MS",
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
+
+    font-size: 37px;
+}
+
+.find h2 span {
+    color: var(--color-red);
+}
+
+.find p {
+    color: #d9e1eb;
+
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   13. TICKETS
+========================================================= */
+
+.tickets {
+    padding: 70px 0;
+}
+
+.ticket-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr auto;
+    gap: 25px;
+    align-items: center;
+
+    padding: 35px;
+
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-xl);
+
+    background: var(--color-light);
+}
+
+.ticket-card h2 {
+    font-size: 36px;
+}
+
+.types {
+    display: flex;
+    gap: 7px;
+}
+
+.types div {
+    min-width: 100px;
+    padding: 12px;
+
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-sm);
+
+    background: var(--color-white);
+}
+
+.types strong {
+    display: block;
+
+    color: #7b8695;
+
+    font-size: 7px;
+}
+
+.types span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--color-red);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   14. ABOUT
+========================================================= */
+
+.about {
+    padding: 60px 0;
+
+    border-top: 1px solid var(--color-border-light);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about h2 span {
+    color: var(--color-red);
+}

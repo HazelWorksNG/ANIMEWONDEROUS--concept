@@ -1,0 +1,18 @@
+Animewonderous website concept — fully local/no external dependencies.
+
+Tech:
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- No Tailwind
+- No Bootstrap
+- No Google Fonts
+- No external CSS or JS libraries
+
+Optional local assets:
+hero.jpg       = approved Shibuya Fest/event hero image
+community.jpg  = approved Animewonderous community/event image
+find.jpg       = approved city/festival image
+
+The product cards currently use CSS placeholders, so the page works without image files.
+Replace those placeholders with the client's approved product photos later.
