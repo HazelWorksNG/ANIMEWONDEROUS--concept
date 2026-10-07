@@ -518,6 +518,7 @@ h2 {
 
     /* Open state */
     .nav.show {
+        display: flex;
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -556,18 +557,24 @@ h2 {
 
     .header {
         top: 7px;
-
         width: calc(100% - 14px);
         height: 56px;
     }
 
-    .nav,
+    /* Hide only the desktop action buttons */
     .actions {
         display: none;
     }
 
+    /* Keep the nav available for the dropdown */
+    .nav {
+        display: flex;
+    }
+
     .menu {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero {
@@ -622,7 +629,6 @@ h2 {
         align-items: flex-start;
         justify-content: center;
         gap: 18px;
-
         padding-block: 30px;
     }
 
