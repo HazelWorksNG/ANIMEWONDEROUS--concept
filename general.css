@@ -560,8 +560,6 @@ h2 {
         width: calc(100% - 14px);
         height: 56px;
     }
-
-    /* Hide only the desktop action buttons */
     .actions {
         display: none;
     }
