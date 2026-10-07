@@ -7,7 +7,7 @@ function demo(){const t=document.querySelector("#toast");t.classList.add("show")
 const menuButton = document.getElementById("menu-button");
 const navigation = document.getElementById("main-navigation");
 
-menuButton.addEventListener("click", () => {
+menuButton.addEventListener("click", () => { 
 
     const isOpen = navigation.classList.toggle("show");
 
