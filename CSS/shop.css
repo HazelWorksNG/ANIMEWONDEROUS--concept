@@ -1,0 +1,665 @@
+/* =========================================================
+   ANIMEWONDEROUS
+   SHOP PAGE
+========================================================= */
+
+
+/* =========================================================
+   SHOP PAGE BASE
+========================================================= */
+
+.shop-page {
+    padding-top: 92px;
+    background: #f4f6f9;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SHOP HERO
+========================================================= */
+
+.shop-hero {
+    position: relative;
+
+    width: min(1240px, calc(100% - 30px));
+    height: 270px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #07162f;
+}
+
+
+.shop-hero-image {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("../assets/images/shop-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.shop-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 19, 41, 0.92),
+            rgba(4, 19, 41, 0.58),
+            rgba(4, 19, 41, 0.35)
+        );
+}
+
+
+.shop-hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 100%;
+
+    padding: 35px 50px;
+
+    color: white;
+}
+
+
+.shop-hero-content h1 {
+    margin: 0;
+
+    color: white;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size: clamp(64px, 8vw, 105px);
+
+    line-height: 0.85;
+
+    letter-spacing: -3px;
+
+    text-transform: uppercase;
+
+    transform: rotate(-2deg);
+
+    text-shadow:
+        4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+.shop-hero-content p {
+    margin-top: 20px;
+
+    max-width: 420px;
+
+    color: #f0f3f8;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PRODUCTS SECTION
+========================================================= */
+
+.shop-products {
+    padding: 55px 0 70px;
+}
+
+
+.shop-container {
+    width: min(
+        1160px,
+        calc(100% - 34px)
+    );
+
+    margin: 0 auto;
+}
+
+
+.shop-heading {
+    margin-bottom: 28px;
+}
+
+
+.shop-heading h2 {
+    margin-bottom: 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 32px;
+
+    color: var(--color-navy);
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   CATEGORY BUTTONS
+========================================================= */
+
+.category-list {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+
+    scrollbar-width: none;
+}
+
+.category-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+.category {
+    flex-shrink: 0;
+
+    padding: 10px 22px;
+
+    border: 1px solid #e0e4ea;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #667085;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.category:hover {
+    transform: translateY(-1px);
+
+    border-color: var(--color-red);
+
+    color: var(--color-red);
+}
+
+
+.category.active {
+    border-color: var(--color-red);
+
+    background: var(--color-red);
+
+    color: white;
+
+    box-shadow:
+        0 8px 18px
+        rgba(245, 30, 49, 0.18);
+}
+
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.shop-product {
+    overflow: hidden;
+
+    border: 1px solid #e3e7ec;
+
+    border-radius: 10px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 18px
+        rgba(4, 19, 41, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.shop-product:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(4, 19, 41, 0.12);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-image {
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #edf0f4;
+}
+
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.shop-product:hover
+.product-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   PRODUCT INFORMATION
+========================================================= */
+
+.product-details {
+    padding: 14px 14px 16px;
+}
+
+
+.product-details h3 {
+    min-height: 32px;
+
+    margin-bottom: 13px;
+
+    color: #12213b;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    line-height: 1.35;
+}
+
+
+.product-price-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.product-price-row strong {
+    color: #17243a;
+
+    font-size: 13px;
+}
+
+
+.product-cart {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 6px;
+
+    color: var(--color-red);
+
+    font-size: 15px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.product-cart:hover {
+    background: rgba(245, 30, 49, 0.08);
+
+    transform: scale(1.08);
+}
+
+
+.product-cart.added {
+    background: var(--color-red);
+
+    color: white;
+
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   VIEW ALL PRODUCTS
+========================================================= */
+
+.view-products {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   COLLABORATION BANNER
+========================================================= */
+
+.shop-collaboration {
+    position: relative;
+
+    min-height: 225px;
+
+    margin-top: 48px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #07162f;
+}
+
+
+.collab-background {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("../assets/images/cod-collab.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.collab-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 19, 41, 0.96) 0%,
+            rgba(4, 19, 41, 0.84) 43%,
+            rgba(4, 19, 41, 0.25) 100%
+        );
+}
+
+
+.collab-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    min-height: 225px;
+
+    padding: 30px 38px;
+
+    color: white;
+}
+
+
+.collab-label {
+    margin-bottom: 5px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.collab-subtitle {
+    margin-bottom: 4px;
+
+    color: #d5dce8;
+
+    font-size: 12px;
+}
+
+
+.collab-content h2 {
+    margin-bottom: 18px;
+
+    color: white;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size: clamp(30px, 4vw, 50px);
+
+    line-height: 0.9;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .shop-page {
+        padding-top: 76px;
+    }
+
+
+    .shop-hero {
+        width: calc(100% - 20px);
+
+        height: 250px;
+
+        border-radius: 10px;
+    }
+
+
+    .shop-hero-content {
+        padding: 25px;
+    }
+
+
+    .shop-hero-content h1 {
+        font-size: clamp(
+            58px,
+            17vw,
+            88px
+        );
+    }
+
+
+    .shop-hero-content p {
+        max-width: 280px;
+
+        margin-top: 17px;
+
+        font-size: 14px;
+    }
+
+
+    .shop-products {
+        padding-top: 38px;
+    }
+
+
+    .shop-container {
+        width: calc(100% - 24px);
+    }
+
+
+    .product-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+
+    .product-details {
+        padding: 11px;
+    }
+
+
+    .product-details h3 {
+        font-size: 10px;
+
+        min-height: 28px;
+    }
+
+
+    .product-price-row strong {
+        font-size: 11px;
+    }
+
+
+    .product-cart {
+        width: 26px;
+        height: 26px;
+
+        font-size: 13px;
+    }
+
+
+    .shop-collaboration {
+        min-height: 210px;
+
+        margin-top: 35px;
+    }
+
+
+    .collab-content {
+        min-height: 210px;
+
+        padding: 25px;
+    }
+
+
+    .collab-label {
+        font-size: 12px;
+    }
+
+
+    .collab-content h2 {
+        font-size: 31px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .shop-hero {
+        height: 225px;
+    }
+
+
+    .shop-hero-content h1 {
+        font-size: 61px;
+    }
+
+
+    .shop-hero-content p {
+        font-size: 13px;
+    }
+
+
+    .category {
+        padding: 9px 17px;
+
+        font-size: 10px;
+    }
+
+
+    .product-grid {
+        gap: 9px;
+    }
+
+
+    .product-details h3 {
+        font-size: 9px;
+    }
+
+
+    .product-price-row strong {
+        font-size: 10px;
+    }
+
+
+    .shop-collaboration {
+        min-height: 190px;
+    }
+
+
+    .collab-content {
+        min-height: 190px;
+
+        padding: 20px;
+    }
+
+
+    .collab-content h2 {
+        font-size: 26px;
+    }
+
+}
