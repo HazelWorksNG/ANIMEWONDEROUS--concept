@@ -5,7 +5,7 @@
 .hero {
     display: flex;
     align-items: center;
-    height: 760px;
+    max-height: 100vh;
     overflow: hidden;
     background: var(--color-navy);
     color: var(--color-white);
@@ -600,17 +600,14 @@
 
 .find {
     position: relative;
-
     min-height: 170px;
-
     background:
         linear-gradient(
             90deg,
             #081a37aa,
             #081a3730
         ),
-        url("assets/find.jpg") center / cover;
-
+        url("../ASSETS/community1.jpeg") center / cover;
     color: var(--color-white);
 }
 

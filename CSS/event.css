@@ -164,24 +164,12 @@
 
 .featured-event-image {
     position: relative;
-
     min-height: 350px;
-
     display: flex;
     align-items: center;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(4, 13, 31, .94),
-            rgba(4, 13, 31, .72),
-            rgba(4, 13, 31, .25)
-        ),
-        url("../assets/images/shibuya-fest.jpg");
-
+    background: url("../ASSETS/IMG/2026.png");
     background-size: cover;
     background-position: center;
-
     overflow: hidden;
 }
 
@@ -411,17 +399,17 @@
 
 
 .image-one {
-    background-image: url("../assets/images/past-event-2024.jpg");
+    background-image: url("../ASSETS/IMG/IMG-20260929-WA0008.jpg");
 }
 
 
 .image-two {
-    background-image: url("../assets/images/past-event-2023.jpg");
+    background-image: url("../ASSETS/IMG/IMG-20260929-WA0009.jpg");
 }
 
 
 .image-three {
-    background-image: url("../assets/images/past-event-2022.jpg");
+    background-image: url("../ASSETS/IMG/IMG-20260929-WA0010.jpg");
 }
 
 
