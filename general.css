@@ -1,15 +1,14 @@
 /* =========================================================
-   ANIMEWONDEROUS
-   Main stylesheet
-   HTML5 + CSS3
-   No frameworks / no external stylesheets
-========================================================= */
-
-
-/* =========================================================
    1. DESIGN TOKENS 
 ========================================================= */
 
+@font-face {
+    font-family: "PermanentMarker";
+    src: url("../ANIMEWONDEROUS--concept/ASSETS/PermanentMarker-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 :root {
     /* Brand colors */
     --color-navy: #07162f;
@@ -336,8 +335,21 @@ h2 {
     background: var(--color-white);
     color: var(--color-navy);
 }
+/* =========================================================
+    HERO
+========================================================= */
 
-
+.hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    font-family: PermanentMarker;
+}
 /* =========================================================
    15. FOOTER
 ========================================================= */

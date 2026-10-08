@@ -1,0 +1,568 @@
+/* =========================================
+   EVENTS PAGE
+========================================= */
+
+.events-container {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    background-image: linear-gradient(90deg,rgba(5, 13, 30, .82),rgba(5, 13, 30, .35),rgba(5, 13, 30, .15)),
+    url("../ASSETS/event-hero.jpeg");
+}
+
+
+/* subtle dark overlay */
+
+.events-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, .05),
+            rgba(4, 12, 27, .35)
+        );
+
+    pointer-events: none;
+}
+
+
+.events-hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+
+    padding-block: 5rem;
+}
+
+
+.hero-japanese {
+    margin-bottom: .5rem;
+
+    color: var(--accent-cyan);
+
+    font-size: .85rem;
+    letter-spacing: .18em;
+}
+
+
+.events-hero h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: .85;
+
+    font-weight: 900;
+    letter-spacing: -.04em;
+
+    text-shadow:
+        5px 5px 0 rgba(245, 30, 49, .65),
+        0 10px 30px rgba(0, 0, 0, .4);
+}
+
+
+.events-hero-content > p:last-child {
+    margin-top: 1.25rem;
+
+    color: white;
+
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 600;
+}
+
+
+
+/* =========================================
+   TABS
+========================================= */
+
+.event-tabs {
+    background: white;
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+.event-tabs .events-container {
+    display: flex;
+    gap: 2rem;
+}
+
+
+.event-tab {
+    position: relative;
+
+    border: 0;
+    background: none;
+
+    padding: 1.3rem .25rem;
+
+    color: #718096;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.event-tab.active {
+    color: var(--color-navy);
+}
+
+
+.event-tab.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 4px;
+
+    background: var(--color-red);
+
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+/* =========================================
+   UPCOMING EVENT
+========================================= */
+
+.upcoming-events {
+    padding: 3rem 0 4rem;
+
+    background: #fff;
+}
+
+
+.featured-event {
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-card);
+}
+
+
+.featured-event-image {
+    position: relative;
+
+    min-height: 350px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 13, 31, .94),
+            rgba(4, 13, 31, .72),
+            rgba(4, 13, 31, .25)
+        ),
+        url("../assets/images/shibuya-fest.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+
+.event-year {
+    position: absolute;
+
+    top: 1.5rem;
+    right: 1.75rem;
+
+    color: white;
+
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+
+.featured-event-content {
+    position: relative;
+
+    max-width: 680px;
+
+    padding: 3rem;
+}
+
+
+.event-label {
+    display: block;
+
+    margin-bottom: .5rem;
+
+    color: var(--color-red);
+
+    font-size: .8rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+}
+
+
+.featured-event h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: .95;
+}
+
+
+.featured-event-content > p {
+    margin: 1rem 0 1.75rem;
+
+    color: rgba(255,255,255,.8);
+
+    font-size: 1rem;
+}
+
+
+.event-details {
+    display: flex;
+    gap: 2.5rem;
+
+    margin-bottom: 2rem;
+}
+
+
+.event-detail {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    color: white;
+}
+
+
+.detail-icon {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: var(--accent-cyan);
+
+    font-size: 1.4rem;
+}
+
+
+.event-detail small {
+    display: block;
+
+    margin-bottom: .2rem;
+
+    color: rgba(255,255,255,.55);
+}
+
+
+.event-detail strong {
+    display: block;
+}
+
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.event-features,
+.past-events {
+    padding: 1rem 0 4rem;
+
+    background: white;
+}
+
+
+.section-heading {
+    margin-bottom: 1.5rem;
+}
+
+
+.section-heading p {
+    margin: 0;
+
+    color: var(--color-navy);
+
+    font-size: .95rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1rem;
+}
+
+
+.feature-card {
+    min-height: 135px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: .7rem;
+
+    background: #f5f7fb;
+
+    border: 1px solid #edf0f5;
+    border-radius: var(--radius-sm);
+
+    color: var(--color-navy);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+
+.feature-card span {
+    font-size: 1.8rem;
+}
+
+
+.feature-card strong {
+    font-size: .9rem;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(245,30,49,.2);
+
+    box-shadow: var(--shadow-card);
+}
+
+
+
+/* =========================================
+   PAST EVENTS
+========================================= */
+
+.past-events {
+    padding-top: 0;
+}
+
+
+.past-event-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.25rem;
+}
+
+
+.past-event-card {
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid #e8ebf1;
+
+    border-radius: var(--radius-sm);
+
+    box-shadow: 0 4px 16px rgba(0,0,0,.05);
+}
+
+
+.past-event-image {
+    height: 170px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.image-one {
+    background-image: url("../assets/images/past-event-2024.jpg");
+}
+
+
+.image-two {
+    background-image: url("../assets/images/past-event-2023.jpg");
+}
+
+
+.image-three {
+    background-image: url("../assets/images/past-event-2022.jpg");
+}
+
+
+.past-event-info {
+    padding: 1rem;
+}
+
+
+.past-event-info h3 {
+    margin: 0 0 .35rem;
+
+    color: var(--color-navy);
+
+    font-size: 1rem;
+}
+
+
+.past-event-info p {
+    margin: 0;
+
+    color: #718096;
+
+    font-size: .85rem;
+}
+
+
+.gallery-link {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 1.5rem;
+}
+
+
+.gallery-link a {
+    color: var(--color-navy);
+
+    font-size: .9rem;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+.gallery-link a:hover {
+    color: var(--color-red);
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .events-hero {
+        min-height: 360px;
+
+        /*
+           Fixed backgrounds can behave badly on
+           some mobile browsers.
+        */
+        background-attachment: fixed;
+    }
+
+
+    .events-hero-content {
+        padding-block: 4rem;
+    }
+
+
+    .events-hero h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+    }
+
+
+    .event-details {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+
+    .featured-event-image {
+        min-height: 430px;
+    }
+
+
+    .featured-event-content {
+        padding: 2rem 1.5rem;
+    }
+
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .past-event-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .past-event-image {
+        height: 190px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .events-hero {
+        min-height: 320px;
+        background-position: 65% center;
+    }
+
+    .event-tabs .events-container {
+        gap: 1.25rem;
+    }
+
+    .featured-event h2 {
+        font-size: 2rem;
+    }
+
+    .featured-event-image {
+        min-height: 450px;
+    }
+
+    .event-year {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .feature-grid {
+        gap: .65rem;
+    }
+
+    .feature-card {
+        min-height: 115px;
+    }
+
+}

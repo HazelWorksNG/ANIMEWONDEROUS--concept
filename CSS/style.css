@@ -3,41 +3,26 @@
 ========================================================= */
 
 .hero {
-    position: relative;
-
     display: flex;
     align-items: center;
-
     height: 760px;
-
     overflow: hidden;
-
     background: var(--color-navy);
     color: var(--color-white);
 }
 
 .hero::before {
     content: "";
-
     position: absolute;
     inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            #020d20f5 0%,
-            #06132bc4 40%,
-            #06132b1a 100%
-        ),
-        url("assets/hero.jpg") center / cover;
+    background: url("../ASSETS/luffy.avif") center / cover;
+    background-attachment: fixed;
 }
 
 .hero::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
     background:
         radial-gradient(
             circle at 74% 27%,
