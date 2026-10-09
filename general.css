@@ -165,30 +165,15 @@ h2 {
 .header {
     position: fixed;
     z-index: 20;
-    top: 14px;
-    left: 50%;
-
     display: flex;
     align-items: center;
     gap: 28px;
-
-    width: min(
-        1240px,
-        calc(100% - 30px)
-    );
-
-    height: 64px;
+    width: 100%;
     padding: 9px 18px;
-
-    transform: translateX(-50%);
-
     border: 1px solid rgb(255 255 255 / 10%);
     border-radius: var(--radius-md);
-
     background: rgb(4 19 41 / 94%);
-
     backdrop-filter: blur(15px);
-
     color: var(--color-white);
 }
 
@@ -196,7 +181,6 @@ h2 {
     display: flex;
     align-items: center;
     gap: 9px;
-
     min-width: max-content;
 }
 
@@ -340,7 +324,7 @@ h2 {
 ========================================================= */
 
 .hero {
-    min-height: 430px;
+    max-height: 300px;
     display: flex;
     align-items: center;
     position: relative;
