@@ -4,11 +4,12 @@
 
 @font-face {
     font-family: "PermanentMarker";
-    src: url("../ANIMEWONDEROUS--concept/ASSETS/PermanentMarker-Regular.ttf") format("ttf");
+    src: url("ASSETS/PermanentMarker-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
+
 :root {
     /* Brand colors */
     --color-navy: #07162f;
@@ -61,7 +62,6 @@
     --transition-fast: 0.2s ease;
 }
 
-
 /* =========================================================
    2. RESET / BASE
 ========================================================= */
@@ -100,8 +100,9 @@ button {
 }
 
 img {
-    display: block;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -249,15 +250,6 @@ h2 {
     color: var(--color-white);
 }
 
-.menu {
-    display: none;
-
-    margin-left: auto;
-
-    color: var(--color-white);
-    font-size: 22px;
-}
-
 /* =========================================
    MOBILE NAVIGATION DROPDOWN
 ========================================= */
@@ -265,12 +257,29 @@ h2 {
 .menu {
     display: none;
     border: 0;
+    margin-left: auto;
     background: transparent;
     color: var(--color-light);
-    font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.50rem;
     line-height: 1;
+}
+
+.menu svg{
+    height: 40px;
+    width: 40px;
+}
+
+.menu .icon-close {
+  display: none;
+}
+
+.menu.active .icon-hamburger {
+  display: none;
+}
+
+.menu.active .icon-close {
+  display: block;
 }
 
 /* =========================================================
@@ -281,18 +290,11 @@ h2 {
     display: inline-flex;
     align-items: center;
     gap: 9px;
-
     padding: 11px 19px;
-
     border-radius: var(--radius-pill);
-
     font-size: 11px;
     font-weight: 800;
-
-    transition:
-        transform var(--transition-fast),
-        background var(--transition-fast),
-        color var(--transition-fast);
+    transition: all var(--transition-fast);
 }
 
 .btn:hover {
@@ -332,7 +334,10 @@ h2 {
     background-position: center;
     background-attachment: fixed;
     overflow: hidden;
-    font-family: PermanentMarker;
+}
+
+.hero h1{
+    font-family: "PermanentMarker", cursive;
 }
 /* =========================================================
    15. FOOTER
@@ -416,42 +421,97 @@ h2 {
     transform: translateY(0);
 }
 
-
 /* =========================================================
    17. TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
-
-    .nav {
-        gap: 14px;
+    .header {
+        gap: 12px;
+        justify-self: center;
     }
 
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .event-grid,
-    .shop-grid,
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .community-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .polaroids {
+    .actions {
         display: none;
     }
 
-    .ticket-card {
-        grid-template-columns: 1fr;
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        cursor: pointer;
     }
 
-    .collab-grid {
+    .nav {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        left: 0;
+
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 4px;
+        margin: 0;
+        padding: 12px;
+
+        background: rgb(4 19 41 / 98%);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        box-shadow: 0 12px 30px rgb(0 0 0 / 25%);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+
+        transition:
+            opacity .2s ease,
+            transform .2s ease,
+            visibility .2s ease;
+    }
+
+    .nav.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav a {
+        display: block;
+        padding: 12px;
+        white-space: normal;
+    }
+
+    .nav a.active::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        width: calc(100% - 20px);
+        min-height: 58px;
+        padding-inline: 10px;
+    }
+
+    .brand {
+        gap: 6px;
+    }
+
+    .brand strong {
+        font-size: 12px;
+    }
+
+    .brand small {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .mark {
+        font-size: 25px;
     }
 }
 
@@ -466,16 +526,9 @@ h2 {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        width: 44px;
-        height: 44px;
-
         border: none;
         background: transparent;
-
         color: white;
-        font-size: 1.6rem;
-
         cursor: pointer;
         z-index: 1100;
     }
@@ -569,10 +622,9 @@ h2 {
         display: flex;
     }
 
-    .menu {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .menu svg {
+        height: 24px;
+        width: 24px;
     }
 
     .hero {
@@ -604,36 +656,6 @@ h2 {
     .inner {
         width: calc(100% - 34px);
     }
-
-    .event,
-    .shop,
-    .community,
-    .tickets,
-    .about {
-        padding-block: 52px;
-    }
-
-    .community-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .features {
-        margin-top: 20px;
-    }
-
-    .find-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 18px;
-        padding-block: 30px;
-    }
-
-    .find h2 {
-        font-size: 31px;
-    }
-
     .footer-grid {
         grid-template-columns: 1fr;
     }

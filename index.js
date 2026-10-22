@@ -7,16 +7,42 @@ function demo(){const t=document.querySelector("#toast");t.classList.add("show")
 const menuButton = document.getElementById("menu-button");
 const navigation = document.getElementById("main-navigation");
 
-menuButton.addEventListener("click", () => { 
+menuButton.addEventListener("click", () => {
+  const isOpen = navigation.classList.toggle("show");
+  menuButton.classList.toggle("active", isOpen);
 
-    const isOpen = navigation.classList.toggle("show");
-
-    menuButton.setAttribute("aria-expanded", isOpen);
-
-    menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-
-    menuButton.textContent = isOpen ? "✕" : "☰";
+  menuButton.setAttribute("aria-expanded", isOpen);
+  menuButton.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
 });
+
+const productContainer = document.querySelector('.products');
+
+if (productContainer) {
+  let autoScrollInterval;
+
+  const startAutoSlide = () => {
+    autoScrollInterval = setInterval(() => {
+      // Check if we've reached the end, then loop back to the start
+      if (productContainer.scrollLeft + productContainer.clientWidth >= productContainer.scrollWidth - 10) {
+        productContainer.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        // Scroll forward by one card width + gap (approx 167px)
+        productContainer.scrollBy({ left: 167, behavior: 'smooth' });
+      }
+    }, 3000); // Changes slide every 3 seconds
+  };
+
+  const stopAutoSlide = () => {
+    clearInterval(autoScrollInterval);
+  };
+
+  // Start auto-sliding on load
+  startAutoSlide();
+
+  // Pause when the user hovers over the products (so they can look or click)
+  productContainer.addEventListener('mouseenter', stopAutoSlide);
+  productContainer.addEventListener('mouseleave', startAutoSlide);
+}

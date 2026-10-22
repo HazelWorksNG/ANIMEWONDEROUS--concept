@@ -5,7 +5,7 @@
 .hero {
     display: flex;
     align-items: center;
-    max-height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     background: var(--color-navy);
     color: var(--color-white);
@@ -44,8 +44,6 @@
         var(--container-width),
         calc(100% - var(--container-gap))
     );
-
-    margin: 65px auto 0;
 }
 
 .jp {
@@ -63,9 +61,7 @@
 
 .kicker {
     margin-bottom: 13px;
-
     color: #d9e1ed;
-
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 3px;
@@ -73,13 +69,6 @@
 
 .hero h1 {
     max-width: 700px;
-
-    font-family:
-        "Comic Sans MS",
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
-
     font-size: clamp(62px, 8vw, 112px);
     line-height: 0.87;
     letter-spacing: -4px;
@@ -96,9 +85,7 @@
 
 .copy {
     margin: 26px 0 21px;
-
     color: var(--text-light);
-
     font-size: 13px;
     line-height: 1.6;
 }
@@ -133,8 +120,8 @@
 
 .event-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 55px;
+    grid-template-columns: 1fr 0.9fr;
+    gap: .2rem;
     align-items: center;
 }
 
@@ -146,10 +133,8 @@
 .meta > div {
     display: flex;
     gap: 9px;
-
-    margin-right: 28px;
-    padding-right: 28px;
-
+    margin-right: 20px;
+    padding-right: 20px;
     border-right: 1px solid #e0e4e9;
 }
 
@@ -166,9 +151,7 @@
 
 .meta small {
     display: block;
-
     color: var(--color-muted-light);
-
     font-size: 8px;
 }
 
@@ -180,33 +163,25 @@
 .count {
     display: flex;
     gap: 7px;
-
     margin-bottom: 22px;
 }
 
 .count div {
     width: 68px;
-
     padding: 9px;
-
     border-radius: var(--radius-sm);
-
     background: var(--color-light-alt);
-
     text-align: center;
 }
 
 .count strong {
     display: block;
-
     color: var(--color-red);
-
     font-family:
         "Arial Narrow",
         Impact,
         Haettenschweiler,
         sans-serif;
-
     font-size: 22px;
 }
 
@@ -216,63 +191,38 @@
 }
 
 .event-photo {
-    position: relative;
-
-    display: grid;
-    place-items: center;
-
-    min-height: 300px;
-
-    overflow: hidden;
-
-    border-radius: var(--radius-lg);
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--color-navy),
-            #164c85 48%,
-            #ed253f
-        );
-
-    color: var(--color-white);
-
-    text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-4, 16px);
 }
 
-.event-photo::before {
-    content: "";
-
-    position: absolute;
-    inset: 20px;
-
-    border: 1px solid rgb(255 255 255 / 22%);
-
-    transform: rotate(-5deg);
-}
-
-.event-photo b {
-    font-family:
-        "Arial Narrow",
-        Impact,
-        Haettenschweiler,
-        sans-serif;
-
-    font-size: 52px;
-    line-height: 0.9;
-
-    transform: rotate(-5deg);
+.event-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .event-photo small {
-    position: absolute;
-    bottom: 12px;
-
-    color: rgb(255 255 255 / 67%);
-
-    font-size: 8px;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.4rem;
 }
-
 
 /* =========================================================
    9. SHOP
@@ -480,10 +430,8 @@
 
 .polaroid {
     position: absolute;
-
     display: grid;
     place-items: center;
-
     width: 110px;
     height: 150px;
 
@@ -723,4 +671,320 @@
 
 .about h2 span {
     color: var(--color-red);
+}
+
+
+/* ========================================
+   MOBILE HOMEPAGE
+======================================== */
+
+@media (max-width: 650px) {
+    html {
+        font-size: 100%;
+    }
+
+    body {
+        overflow-x: clip;
+    }
+
+    /* Header */
+    .header {
+        top: 8px;
+        width: calc(100% - 20px);
+        min-height: 56px;
+        padding: 7px 10px;
+        gap: 8px;
+    }
+
+    .brand {
+        gap: 6px;
+    }
+
+    .brand strong {
+        font-size: 11px;
+    }
+
+    .brand small {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .mark {
+        font-size: 24px;
+    }
+
+    .actions {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 680px;
+        height: 100svh;
+        max-height: 850px;
+        background: var(--color-navy);
+    }
+
+    .hero::before {
+        background-position: 62% center;
+        background-attachment: fixed;
+    }
+
+    .hero::after {
+        background:
+            linear-gradient(
+                90deg,
+                rgb(4 13 31 / 65%),
+                rgb(4 13 31 / 15%)
+            ),
+            linear-gradient(
+                0deg,
+                rgb(4 13 31 / 80%),
+                transparent 65%
+            );
+    }
+
+    .hero-content {
+        width: calc(100% - 40px);
+        margin: 75px auto 0;
+    }
+
+    .jp {
+        display: none;
+    }
+
+    .kicker {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 13vw, 76px);
+        line-height: .9;
+        letter-spacing: -2px;
+        overflow-wrap: normal;
+    }
+
+    .hero h1 .redword {
+        transform: translateX(10px);
+    }
+
+    .copy {
+        font-size: 12px;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .hero-buttons .btn {
+        padding: 11px 13px;
+        font-size: 10px;
+    }
+
+    .scroll {
+        bottom: 18px;
+        white-space: nowrap;
+    }
+
+    /* Shared section spacing */
+    .inner {
+        width: calc(100% - 32px);
+    }
+
+    .event,
+    .shop,
+    .community,
+    .tickets,
+    .about {
+        padding-block: 42px;
+    }
+
+    h2 {
+        font-size: clamp(28px, 8vw, 38px);
+    }
+
+    /* Event */
+    .event-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .event-photo {
+        min-height: 230px;
+    }
+
+    .event-photo img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+    .meta {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .meta > div {
+        margin-right: 0;
+        padding-right: 12px;
+    }
+
+    .count {
+        flex-wrap: wrap;
+    }
+
+    .count div {
+        flex: 1;
+        min-width: 55px;
+    }
+
+    /* Shop: horizontal product carousel */
+    .shop-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .products {
+        display: grid;
+        grid-auto-columns: 155px;
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 4px 2px 14px;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+    }
+
+    /* The entire scrollbar track */
+    .products::-webkit-scrollbar {
+        height: 10px;  /* Height for horizontal scrollbars */
+        width: 5px;   /* Width for vertical scrollbars */
+    }
+
+    /* The background track/rail of the scrollbar */
+    .products::-webkit-scrollbar-track {
+        background: #14213D; /* Midnight navy background */
+        border-radius: 50px;
+    }
+
+    /* The draggable scrolling handle (thumb) */
+    .products::-webkit-scrollbar-thumb {
+        background: #9900FF; /* Purple accent */
+        border-radius: 8px;
+        border: 2px solid #14213D; /* Creates a nice padding border effect */
+    }
+
+    /* The thumb when hovered over or dragged */
+    .products::-webkit-scrollbar-thumb:hover {
+        background: #ff0033; /* Neon red on hover */
+    }
+
+    .product {
+        min-width: 0;
+        scroll-snap-align: start;
+    }
+
+    .pic {
+        height: 155px;
+    }
+
+    .product h3 {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    /* Community */
+    .community-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .community h2 {
+        font-size: clamp(30px, 9vw, 42px);
+    }
+
+    .community p {
+        font-size: 12px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 12px;
+    }
+
+    .features strong {
+        font-size: 11px;
+    }
+
+    .features span {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .polaroids {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Collaborations */
+    .collab-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .logos {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    /* Find your people */
+    .find-grid {
+        min-height: 200px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 18px;
+        padding-block: 28px;
+    }
+
+    .find h2 {
+        font-size: clamp(27px, 8vw, 36px);
+    }
+
+    /* Tickets */
+    .ticket-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 22px 16px;
+    }
+
+    .types {
+        flex-wrap: wrap;
+    }
+
+    .types div {
+        flex: 1;
+        min-width: 85px;
+    }
+
+    /* About */
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
 }
