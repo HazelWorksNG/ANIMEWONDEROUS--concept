@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account | Animewonderous</title>
+
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="CSS/login-register.css">
+
+    <script src="JS/login.js" defer></script>
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-layout">
+
+        <!-- LEFT: BRANDING -->
+        <section class="auth-visual">
+
+            <a href="index.html" class="auth-brand">
+                <span class="auth-brand-symbol">✦</span>
+
+                <span>
+                    ANIMEWONDEROUS
+                    <small>THE HOME OF OTAKUS</small>
+                </span>
+            </a>
+
+            <div class="visual-content">
+                <span class="visual-tag">
+                    YOUR NEXT ADVENTURE STARTS HERE
+                </span>
+
+                <h1>
+                    ENTER THE
+                    <span>ANIMEVERSE.</span>
+                </h1>
+
+                <p>
+                    Your people. Your fandom. Your world.
+                    Everything Animewonderous, all in one place.
+                </p>
+
+                <div class="visual-decoration" aria-hidden="true">
+                    <span class="deco-line"></span>
+                    <span class="deco-star">✦</span>
+                    <span class="deco-line"></span>
+                </div>
+
+                <div class="visual-bottom">
+                    <span>アニメ · ゲーム · コミュニティ</span>
+                    <span>EST. ANIMEWONDEROUS</span>
+                </div>
+            </div>
+
+            <div class="visual-orb orb-one"></div>
+            <div class="visual-orb orb-two"></div>
+
+        </section>
+
+
+        <!-- RIGHT: AUTHENTICATION UI -->
+        <section class="auth-panel">
+
+            <a href="index.html" class="mobile-brand">
+                <span>✦</span> ANIMEWONDEROUS
+            </a>
+
+            <div class="auth-form-wrap">
+
+                <div class="auth-heading">
+                    <span class="auth-kicker">WELCOME TO THE COMMUNITY</span>
+
+                    <h2 id="form-heading">Welcome back.</h2>
+
+                    <p id="form-description">
+                        Sign in to continue your adventure.
+                    </p>
+                </div>
+
+
+                <!-- FORM SWITCHER -->
+                <div class="auth-tabs" role="tablist">
+                    <button
+                        class="auth-tab active"
+                        id="login-tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="login-form"
+                    >
+                        Sign In
+                    </button>
+
+                    <button
+                        class="auth-tab"
+                        id="register-tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="register-form"
+                    >
+                        Create Account
+                    </button>
+                </div>
+
+
+                <!-- LOGIN FORM -->
+                <form id="login-form" class="auth-form">
+
+                    <div class="form-field">
+                        <label for="login-email">Email address</label>
+
+                        <input
+                            type="email"
+                            id="login-email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <div class="label-row">
+                            <label for="login-password">Password</label>
+
+                            <button
+                                class="text-button"
+                                id="forgot-password"
+                                type="button"
+                            >
+                                Forgot password?
+                            </button>
+                        </div>
+
+                        <div class="password-wrap">
+                            <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password="login-password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <label class="remember-option">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
+
+                    <button class="auth-submit" type="submit">
+                        <span>Sign In</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="form-message" id="login-message" aria-live="polite"></p>
+
+                    <p class="auth-switch-copy">
+                        New to Animewonderous?
+                        <button type="button" class="text-button" data-switch="register">
+                            Create an account
+                        </button>
+                    </p>
+
+                </form>
+
+
+                <!-- REGISTER FORM -->
+                <form id="register-form" class="auth-form" hidden>
+
+                    <div class="form-field">
+                        <label for="register-username">Username</label>
+
+                        <input
+                            type="text"
+                            id="register-username"
+                            name="username"
+                            placeholder="Choose your username"
+                            minlength="3"
+                            maxlength="24"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="register-email">Email address</label>
+
+                        <input
+                            type="email"
+                            id="register-email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="register-password">Password</label>
+
+                        <div class="password-wrap">
+                            <input
+                                type="password"
+                                id="register-password"
+                                name="password"
+                                placeholder="Create a password"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password="register-password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+
+                        <small class="field-hint">
+                            Use at least 8 characters.
+                        </small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="confirm-password">Confirm password</label>
+
+                        <div class="password-wrap">
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                name="confirm-password"
+                                placeholder="Enter your password again"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password="confirm-password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <label class="remember-option terms-option">
+                        <input type="checkbox" id="accept-terms" required>
+
+                        <span>
+                            I agree to the
+                            <a href="terms.html">Terms of Service</a>
+                            and
+                            <a href="privacy.html">Privacy Policy</a>.
+                        </span>
+                    </label>
+
+                    <button class="auth-submit" type="submit">
+                        <span>Create Account</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="form-message" id="register-message" aria-live="polite"></p>
+
+                    <p class="auth-switch-copy">
+                        Already have an account?
+                        <button type="button" class="text-button" data-switch="login">
+                            Sign in
+                        </button>
+                    </p>
+
+                </form>
+
+
+                <!-- PASSWORD RESET DEMO -->
+                <form id="reset-form" class="auth-form" hidden>
+
+                    <div class="form-field">
+                        <label for="reset-email">Email address</label>
+
+                        <input
+                            type="email"
+                            id="reset-email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <button class="auth-submit" type="submit">
+                        <span>Request Password Reset</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="form-message" id="reset-message" aria-live="polite"></p>
+
+                    <p class="auth-switch-copy">
+                        Remember your password?
+                        <button type="button" class="text-button" data-switch="login">
+                            Back to sign in
+                        </button>
+                    </p>
+
+                </form>
+
+                <p class="auth-disclaimer">
+                    Animewonderous · Anime, gaming and community.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

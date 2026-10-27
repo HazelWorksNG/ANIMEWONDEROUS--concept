@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — Animewonderous</title>
+
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="CSS/admin.css">
+</head>
+<body class="admin-body">
+
+    <aside class="admin-sidebar" id="admin-sidebar">
+        <a class="brand admin-brand" href="index.html">
+            <span class="mark">卐</span>
+            <span>
+                <strong>ANIMEWONDEROUS</strong>
+                <small>ADMIN PANEL</small>
+            </span>
+        </a>
+
+        <p class="sidebar-label">WORKSPACE</p>
+
+        <nav class="admin-nav">
+            <button class="admin-nav-link active" data-view="dashboard">
+                <span>◈</span> Dashboard
+            </button>
+            <button class="admin-nav-link" data-view="products">
+                <span>▣</span> Products
+            </button>
+            <button class="admin-nav-link" data-view="orders">
+                <span>▤</span> Orders
+            </button>
+            <button class="admin-nav-link" data-view="events">
+                <span>✦</span> Events
+            </button>
+            <button class="admin-nav-link" data-view="tickets">
+                <span>▧</span> Tickets
+            </button>
+            <button class="admin-nav-link" data-view="customers">
+                <span>♙</span> Customers
+            </button>
+
+            <p class="sidebar-label">CONTENT</p>
+
+            <button class="admin-nav-link" data-view="community">
+                <span>♧</span> Community
+            </button>
+            <button class="admin-nav-link" data-view="collaborations">
+                <span>✧</span> Collaborations
+            </button>
+            <button class="admin-nav-link" data-view="settings">
+                <span>⚙</span> Settings
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span class="status-dot"></span>
+            Demo mode active
+            <a href="index.html">← View website</a>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-topbar">
+            <button id="sidebar-toggle" class="sidebar-toggle"
+                aria-label="Toggle sidebar">☰</button>
+
+            <div>
+                <p class="eyebrow">ANIMEWONDEROUS / ADMIN</p>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+
+            <div class="admin-profile">
+                <span class="avatar">H</span>
+                <div>
+                    <strong>Admin</strong>
+                    <small>Demo account</small>
+                </div>
+            </div>
+        </header>
+
+        <section id="admin-content" aria-live="polite">
+            <!-- JavaScript renders the selected dashboard view here. -->
+        </section>
+
+        <footer class="admin-footer">
+            Animewonderous Admin · Demo project · 2026
+        </footer>
+    </main>
+
+    <div class="admin-toast" id="admin-toast" role="status"></div>
+
+    <script src="JS/admin.js"></script>
+</body>
+</html>

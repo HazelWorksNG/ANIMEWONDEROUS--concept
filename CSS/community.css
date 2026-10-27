@@ -1,0 +1,943 @@
+/* =========================================================
+   01. COMMUNITY HERO
+========================================================= */
+
+.community-hero {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgb(4 19 41 / 96%) 0%,
+            rgb(4 19 41 / 80%) 48%,
+            rgb(4 19 41 / 30%) 100%
+        ),
+        url("../ASSETS/community2.jpeg") center 45% / cover no-repeat;
+
+}
+
+
+.community-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+    padding-block: 5rem;
+}
+
+.communiy-hero-content p {
+    margin-top: 20px;
+    max-width: 420px;
+    color: #f0f3f8;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   02. INTRODUCTION
+========================================================= */
+
+.community-intro {
+    padding: 65px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.intro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.community-intro h2 {
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: .92;
+}
+
+.intro-copy {
+    max-width: 490px;
+}
+
+.intro-copy > p:first-child {
+    margin-bottom: 14px;
+    color: var(--color-navy);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.intro-copy .muted {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   03. SECTION HEADINGS
+========================================================= */
+
+.community-spaces-section,
+.community-activities {
+    padding: 80px 0;
+}
+
+.community-spaces-section {
+    background: var(--color-light);
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 46px);
+}
+
+.section-heading > .muted {
+    max-width: 230px;
+    text-align: right;
+}
+
+
+/* =========================================================
+   04. COMMUNITY BENTO GRID
+========================================================= */
+
+.community-bento {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr 1fr;
+    grid-template-rows: repeat(2, minmax(225px, auto));
+    gap: 16px;
+}
+
+.bento-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 225px;
+    padding: 27px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    isolation: isolate;
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+.bento-card h3 {
+    margin-top: auto;
+    font-family:
+        "PermanentMarker",
+        Impact,
+        sans-serif;
+    font-size: clamp(25px, 3vw, 37px);
+    line-height: 1;
+}
+
+.bento-card p {
+    max-width: 290px;
+    margin-top: 13px;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.bento-number {
+    position: relative;
+    z-index: 2;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.bento-link {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.bento-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 466px;
+    justify-content: flex-end;
+    background: var(--color-navy);
+    color: var(--color-white);
+}
+
+.bento-card-image,
+.bento-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.bento-card-image {
+    background:
+        url("../ASSETS/community-anime.jpg") center / cover no-repeat,
+        var(--color-navy);
+    transition: transform .45s ease;
+}
+
+.bento-featured:hover .bento-card-image {
+    transform: scale(1.04);
+}
+
+.bento-card-overlay {
+    background:
+        linear-gradient(
+            0deg,
+            rgb(4 19 41 / 98%) 0%,
+            rgb(4 19 41 / 70%) 45%,
+            rgb(4 19 41 / 8%) 100%
+        );
+}
+
+.bento-featured h3 {
+    font-size: clamp(36px, 5vw, 60px);
+}
+
+.bento-featured p {
+    max-width: 370px;
+    color: var(--text-white-muted);
+}
+
+.bento-featured .bento-link {
+    color: var(--accent-cyan);
+}
+
+.gaming-space {
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgb(25 217 255 / 22%),
+            transparent 50%
+        ),
+        var(--color-navy);
+    color: var(--color-white);
+}
+
+.bento-icon {
+    margin-bottom: 15px;
+    color: var(--accent-cyan);
+    font-size: 35px;
+}
+
+.gaming-space h3 {
+    color: var(--color-red);
+}
+
+.gaming-space p {
+    color: var(--text-white-muted);
+}
+
+.gaming-space .bento-link {
+    color: var(--accent-cyan);
+}
+
+.creator-space {
+    background:
+        linear-gradient(
+            135deg,
+            rgb(245 30 49 / 10%),
+            transparent 55%
+        ),
+        #ffffff;
+    border: 1px solid var(--color-border);
+    color: var(--color-navy);
+}
+
+.creator-space h3 {
+    position: relative;
+    z-index: 1;
+}
+
+.creator-space p {
+    position: relative;
+    z-index: 1;
+    color: var(--color-muted);
+}
+
+.creator-space .bento-link {
+    color: var(--color-red);
+}
+
+.creator-decoration {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: rgb(245 30 49 / 10%);
+    font-size: 110px;
+    font-weight: 900;
+}
+
+.lounge-space {
+    grid-column: span 1;
+    background:
+        linear-gradient(
+            145deg,
+            rgb(245 30 49 / 10%),
+            transparent 55%
+        ),
+        #0b203b;
+    color: var(--color-white);
+}
+
+.lounge-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-red);
+    box-shadow: 0 0 12px rgb(245 30 49 / 60%);
+}
+
+.lounge-space p {
+    color: var(--text-white-muted);
+}
+
+.lounge-space .bento-link {
+    color: var(--color-red-light);
+}
+
+.lounge-japanese {
+    position: absolute;
+    right: 12px;
+    bottom: 5px;
+    color: rgb(255 255 255 / 5%);
+    font-size: 85px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   05. ACTIVITIES BENTO
+========================================================= */
+
+.community-activities {
+    background: var(--color-white);
+}
+
+.board-stamp {
+    padding: 9px 13px;
+    border: 1px solid var(--color-red);
+    color: var(--color-red);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transform: rotate(-3deg);
+}
+
+.activities-bento {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 16px;
+}
+
+.activity-card {
+    position: relative;
+    min-width: 0;
+    padding: 27px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.activity-tag {
+    display: inline-block;
+    color: var(--color-red);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.activity-card h3 {
+    margin-top: 18px;
+    color: var(--color-navy);
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+.activity-card .muted {
+    margin-top: 10px;
+}
+
+.poll-card {
+    background: var(--color-light);
+}
+
+.activity-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activity-symbol {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-red);
+    color: var(--color-white);
+    font-weight: 900;
+}
+
+.poll-card form {
+    display: grid;
+    gap: 9px;
+    margin-top: 22px;
+}
+
+.poll-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-size: 12px;
+    cursor: pointer;
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.poll-option:has(input:checked) {
+    border-color: var(--color-red);
+    background: rgb(245 30 49 / 5%);
+}
+
+.poll-option input {
+    accent-color: var(--color-red);
+}
+
+.poll-option:focus-within {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+}
+
+.poll-submit {
+    justify-content: center;
+    margin-top: 7px;
+}
+
+.poll-feedback {
+    margin-top: 13px;
+    color: var(--color-muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.discussion-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(
+            145deg,
+            rgb(25 217 255 / 8%),
+            transparent 55%
+        ),
+        var(--color-navy);
+    color: var(--color-white);
+}
+
+.discussion-card h3 {
+    position: relative;
+    z-index: 1;
+    max-width: 430px;
+    color: var(--color-white);
+    font-size: clamp(24px, 3vw, 35px);
+}
+
+.discussion-card .muted {
+    max-width: 400px;
+    color: var(--text-white-muted);
+}
+
+.discussion-quote {
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    color: rgb(245 30 49 / 20%);
+    font-family: Georgia, serif;
+    font-size: 140px;
+    line-height: 1;
+}
+
+.text-link {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 24px;
+    color: var(--color-red);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .8px;
+}
+
+.discussion-card .text-link {
+    color: var(--accent-cyan);
+}
+
+.event-promo-card {
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    gap: 20px;
+    align-items: center;
+    background: var(--color-light);
+}
+
+.event-promo-image {
+    min-height: 230px;
+    border-radius: var(--radius-md);
+    background:
+        url("../ASSETS/shibuya-fest.jpg") center / cover no-repeat,
+        var(--color-navy);
+}
+
+.event-promo-content h3 {
+    font-size: 23px;
+}
+
+.event-promo-content p {
+    margin-top: 12px;
+    color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.event-promo-content .btn {
+    margin-top: 18px;
+}
+
+.creator-callout {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgb(25 217 255 / 12%),
+            transparent 40%
+        ),
+        var(--color-navy-dark);
+    color: var(--color-white);
+}
+
+.creator-callout h3 {
+    position: relative;
+    z-index: 1;
+    max-width: 290px;
+    color: var(--color-white);
+}
+
+.creator-callout p {
+    position: relative;
+    z-index: 1;
+    max-width: 340px;
+    margin-top: 12px;
+    color: var(--text-white-muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.creator-callout .text-link {
+    color: var(--accent-cyan);
+}
+
+.creator-callout-symbol {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: rgb(245 30 49 / 22%);
+    font-size: 90px;
+}
+
+
+/* =========================================================
+   06. COMMUNITY VALUES
+========================================================= */
+
+.community-values {
+    padding: 80px 0;
+    background: var(--color-navy);
+    color: var(--color-white);
+}
+
+.values-layout {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 70px;
+}
+
+.values-heading h2 {
+    color: var(--color-white);
+    font-size: clamp(42px, 5vw, 62px);
+    line-height: .92;
+}
+
+.values-heading > p:last-child {
+    max-width: 300px;
+    margin-top: 20px;
+    color: var(--text-white-muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding-top: 15px;
+    border-top: 1px solid rgb(255 255 255 / 15%);
+}
+
+.value-item > span {
+    color: var(--color-red);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.value-item h3 {
+    color: var(--color-white);
+    font-size: 12px;
+}
+
+.value-item p {
+    margin-top: 9px;
+    color: var(--text-white-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   07. FINAL CALL TO ACTION
+========================================================= */
+
+.community-cta {
+    position: relative;
+    padding: 90px 0;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        linear-gradient(
+            90deg,
+            rgb(4 19 41 / 97%),
+            rgb(4 19 41 / 82%)
+        ),
+        url("../ASSETS/community-hero.jpg") center / cover no-repeat,
+        var(--color-navy-dark);
+    color: var(--color-white);
+}
+
+.community-cta::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    right: 10%;
+    width: 300px;
+    height: 500px;
+    border: 1px solid rgb(245 30 49 / 35%);
+    transform: rotate(35deg);
+}
+
+.community-cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.community-cta h2 {
+    max-width: 800px;
+    color: var(--color-white);
+    font-size: clamp(36px, 7vw, 76px);
+    line-height: .95;
+}
+
+.community-cta h2 span {
+    color: var(--color-red);
+}
+
+.community-cta-content > p:not(.label) {
+    max-width: 430px;
+    margin-top: 18px;
+    color: var(--text-white-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.community-cta-content .btn {
+    margin-top: 25px;
+}
+
+.cta-japanese {
+    position: absolute;
+    right: 6%;
+    bottom: 12px;
+    color: rgb(255 255 255 / 7%);
+    font-size: clamp(60px, 10vw, 130px);
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   08. INTERACTION AND ACCESSIBILITY
+========================================================= */
+
+.community-page a:focus-visible,
+.community-page button:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bento-card,
+    .bento-card-image,
+    .poll-option {
+        transition: none;
+    }
+
+    .bento-card:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   09. TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .community-hero {
+        min-height: 540px;
+    }
+
+    .community-bento {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+    }
+
+    .bento-featured {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 380px;
+    }
+
+    .gaming-space,
+    .creator-space,
+    .lounge-space {
+        min-height: 240px;
+    }
+
+    .intro-layout {
+        gap: 35px;
+    }
+
+    .values-layout {
+        gap: 35px;
+    }
+
+    .activities-bento {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .event-promo-card {
+        grid-template-columns: 1fr;
+    }
+
+    .event-promo-image {
+        min-height: 180px;
+    }
+}
+
+
+/* =========================================================
+   10. MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .community-hero h1 {
+        font-size: clamp(48px, 13vw, 76px);
+        letter-spacing: -2px;
+    }
+
+    .community-intro,
+    .community-spaces-section,
+    .community-activities,
+    .community-values {
+        padding: 55px 0;
+    }
+
+    .intro-layout,
+    .values-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .community-intro h2 {
+        font-size: 43px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .section-heading > .muted {
+        text-align: left;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .community-bento {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .bento-card {
+        min-height: 220px;
+        padding: 17px;
+    }
+
+    .bento-featured {
+        grid-column: span 2;
+        min-height: 360px;
+        padding: 22px;
+    }
+
+    .bento-featured h3 {
+        font-size: clamp(34px, 9vw, 48px);
+    }
+
+    .bento-card h3 {
+        font-size: 27px;
+    }
+
+    .bento-card p {
+        font-size: 11px;
+    }
+
+    .bento-number {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .bento-link {
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .bento-icon {
+        font-size: 28px;
+    }
+
+    .creator-decoration {
+        font-size: 75px;
+    }
+
+    .lounge-japanese {
+        font-size: 60px;
+    }
+
+    .activities-bento {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .activity-card {
+        padding: 22px;
+    }
+
+    .event-promo-card {
+        grid-template-columns: .8fr 1fr;
+        gap: 14px;
+    }
+
+    .event-promo-image {
+        min-height: 200px;
+    }
+
+    .event-promo-content h3 {
+        font-size: 20px;
+    }
+
+    .event-promo-content .btn {
+        padding: 10px 12px;
+        font-size: 10px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .community-cta {
+        padding: 65px 0;
+    }
+
+    .community-cta h2 {
+        font-size: clamp(35px, 10vw, 55px);
+    }
+
+    .cta-japanese {
+        right: 3%;
+        bottom: 2px;
+    }
+}
+
+
+/* =========================================================
+   11. SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+    .community-bento {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-featured {
+        grid-column: span 1;
+        min-height: 340px;
+    }
+
+    .bento-card {
+        min-height: 200px;
+    }
+
+    .event-promo-card {
+        grid-template-columns: 1fr;
+    }
+
+    .event-promo-image {
+        min-height: 180px;
+    }
+}

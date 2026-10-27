@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Get Your Ticket | Animewonderous</title>
+
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="CSS/ticket.css">
+
+    <script src="JS/ticket.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="brand">
+            <span class="brand-symbol">卍</span>
+            <span class="brand-name">
+                ANIMEWONDEROUS
+                <small>THE HOME OF OTAKUS</small>
+            </span>
+        </a>
+
+        <nav class="nav" id="main-navigation">
+            <a href="index.html">Home</a>
+            <a href="event.html">Events</a>
+            <a href="shop.html">Shop</a>
+            <a href="community.html">Community</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <button
+            class="menu"
+            id="menu-button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            type="button"
+        >☰</button>
+    </header>
+
+
+    <main class="ticket-page">
+
+        <!-- TICKET HERO -->
+        <section class="ticket-hero">
+            <div class="ticket-hero-content">
+                <span class="eyebrow">ENUGU SHIBUYA FEST 2026</span>
+
+                <h1>
+                    GET YOUR
+                    <span>TICKET.</span>
+                </h1>
+
+                <p>
+                    Your gateway to anime, gaming,
+                    cosplay and unforgettable experiences.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- TICKET SELECTION -->
+        <section class="ticket-section">
+
+            <div class="ticket-heading">
+                <span class="section-label">YOUR EXPERIENCE STARTS HERE</span>
+                <h2>Choose Your Ticket</h2>
+                <p>Select the pass that suits your experience.</p>
+            </div>
+
+            <form class="ticket-form" id="ticket-form">
+
+                <div class="ticket-options">
+
+                    <label class="ticket-option">
+                        <input
+                            type="radio"
+                            name="ticket"
+                            value="early-bird"
+                            data-price="3500"
+                            checked
+                        >
+
+                        <span class="ticket-radio"></span>
+
+                        <span class="ticket-info">
+                            <strong>Early Bird</strong>
+                            <small>Limited-time offer</small>
+                        </span>
+
+                        <span class="ticket-price">₦3,500</span>
+                    </label>
+
+
+                    <label class="ticket-option">
+                        <input
+                            type="radio"
+                            name="ticket"
+                            value="general"
+                            data-price="5000"
+                        >
+
+                        <span class="ticket-radio"></span>
+
+                        <span class="ticket-info">
+                            <strong>General Admission</strong>
+                            <small>Standard festival access</small>
+                        </span>
+
+                        <span class="ticket-price">₦5,000</span>
+                    </label>
+
+
+                    <label class="ticket-option">
+                        <input
+                            type="radio"
+                            name="ticket"
+                            value="vip"
+                            data-price="15000"
+                        >
+
+                        <span class="ticket-radio"></span>
+
+                        <span class="ticket-info">
+                            <strong>VIP</strong>
+                            <small>Premium festival experience</small>
+                        </span>
+
+                        <span class="ticket-price">₦15,000</span>
+                    </label>
+
+                </div>
+
+
+                <div class="ticket-quantity">
+                    <label for="quantity">Number of tickets</label>
+
+                    <div class="quantity-control">
+                        <button
+                            type="button"
+                            id="decrease-quantity"
+                            aria-label="Decrease quantity"
+                        >−</button>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            min="1"
+                            max="10"
+                            value="1"
+                        >
+
+                        <button
+                            type="button"
+                            id="increase-quantity"
+                            aria-label="Increase quantity"
+                        >+</button>
+                    </div>
+                </div>
+
+
+                <div class="ticket-total">
+                    <span>Total</span>
+                    <strong id="ticket-total">₦3,500</strong>
+                </div>
+
+                <button class="ticket-submit" type="submit">
+                    Get Ticket <span>→</span>
+                </button>
+
+                <p class="ticket-note">
+                    <span>✦</span>
+                    Ticket selection preview — checkout will be added later.
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer class="ticket-footer">
+        <a href="index.html">ANIMEWONDEROUS</a>
+        <p>Anime. Gaming. Culture. Community.</p>
+    </footer>
+
+</body>
+</html>
