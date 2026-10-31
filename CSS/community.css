@@ -3,7 +3,6 @@
 ========================================================= */
 
 .community-hero {
-
     background:
         linear-gradient(
             90deg,
@@ -12,9 +11,7 @@
             rgb(4 19 41 / 30%) 100%
         ),
         url("../ASSETS/community2.jpeg") center 45% / cover no-repeat;
-
 }
-
 
 .community-hero-content {
     position: relative;
@@ -24,7 +21,7 @@
     padding-block: 5rem;
 }
 
-.communiy-hero-content p {
+.community-hero-content p {
     margin-top: 20px;
     max-width: 420px;
     color: #f0f3f8;
@@ -733,10 +730,7 @@
 ========================================================= */
 
 @media (max-width: 900px) {
-    .community-hero {
-        min-height: 540px;
-    }
-
+    
     .community-bento {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: auto;
