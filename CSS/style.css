@@ -24,22 +24,22 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(
-            circle at 74% 27%,
-            rgb(25 217 255 / 14%),
-            transparent 22%
+        linear-gradient(
+            90deg,
+            rgb(4 13 31 / 65%),
+            rgb(4 13 31 / 15%)
         ),
         linear-gradient(
             0deg,
-            rgb(7 22 47 / 85%),
-            transparent 40%
+            rgb(4 13 31 / 80%),
+            transparent 65%
         );
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-
+    margin: 75px auto 0;
     width: min(
         var(--container-width),
         calc(100% - var(--container-gap))
@@ -687,15 +687,6 @@
         overflow-x: clip;
     }
 
-    /* Header */
-    .header {
-        top: 8px;
-        width: calc(100% - 20px);
-        min-height: 56px;
-        padding: 7px 10px;
-        gap: 8px;
-    }
-
     .brand {
         gap: 6px;
     }
@@ -727,28 +718,13 @@
     /* Hero */
     .hero {
         min-height: 680px;
-        height: 100svh;
+        height: 100vh;
         max-height: 850px;
-        background: var(--color-navy);
     }
 
     .hero::before {
         background-position: 62% center;
         background-attachment: fixed;
-    }
-
-    .hero::after {
-        background:
-            linear-gradient(
-                90deg,
-                rgb(4 13 31 / 65%),
-                rgb(4 13 31 / 15%)
-            ),
-            linear-gradient(
-                0deg,
-                rgb(4 13 31 / 80%),
-                transparent 65%
-            );
     }
 
     .hero-content {
@@ -868,25 +844,20 @@
     /* The entire scrollbar track */
     .products::-webkit-scrollbar {
         height: 10px;  /* Height for horizontal scrollbars */
-        width: 5px;   /* Width for vertical scrollbars */
+        width: 50px;   /* Width for vertical scrollbars */
     }
 
     /* The background track/rail of the scrollbar */
     .products::-webkit-scrollbar-track {
-        background: #14213D; /* Midnight navy background */
+        background: var(--color-light-alt); /* Midnight navy background */
         border-radius: 50px;
+        border: 2px solid #14213D; /* Creates a nice padding border effect */
     }
 
     /* The draggable scrolling handle (thumb) */
     .products::-webkit-scrollbar-thumb {
-        background: #9900FF; /* Purple accent */
+        background: var(--color-red); /* Purple accent */
         border-radius: 8px;
-        border: 2px solid #14213D; /* Creates a nice padding border effect */
-    }
-
-    /* The thumb when hovered over or dragged */
-    .products::-webkit-scrollbar-thumb:hover {
-        background: #ff0033; /* Neon red on hover */
     }
 
     .product {
@@ -932,7 +903,7 @@
     }
 
     .polaroids {
-        display: block;
+        display: inline-flex;
         width: 100%;
         max-width: 300px;
         margin: 0 auto;

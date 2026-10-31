@@ -11,6 +11,25 @@ menuButton.addEventListener("click", () => {
     isOpen ? "Close navigation menu" : "Open navigation menu"
   );
 });
+
+const header = document.querySelector(".header");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        header.classList.add("hide-header");
+    } else {
+        // Scrolling up
+        header.classList.remove("hide-header");
+    }
+
+    lastScrollY = currentScrollY;
+});
+
 /*
 ==========================================================
       Products autosliding

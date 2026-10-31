@@ -79,10 +79,8 @@ html {
 body {
     min-height: 100vh;
     overflow-x: hidden;
-
     background: var(--color-white);
     color: var(--color-ink);
-
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -165,24 +163,36 @@ h2 {
 
 .header {
     position: fixed;
-    z-index: 20;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+
     display: flex;
     align-items: center;
     gap: 28px;
+
     width: 100%;
     padding: 9px 18px;
+
     border: 1px solid rgb(255 255 255 / 10%);
-    border-radius: var(--radius-md);
     background: rgb(4 19 41 / 94%);
     backdrop-filter: blur(15px);
+
     color: var(--color-white);
+    transition: transform .3s ease;
 }
+
+/* Hide header when scrolling down */
+.header.hide-header {
+    transform: translateY(-104%);
+}  
 
 .brand {
     display: flex;
     align-items: center;
     gap: 9px;
     min-width: max-content;
+    text-decoration: none;
 }
 
 .mark {
@@ -204,9 +214,7 @@ h2 {
 
 .brand small {
     display: block;
-
     color: #b9c4d4;
-
     font-size: 7px;
     letter-spacing: 2px;
 }
@@ -214,32 +222,27 @@ h2 {
 .nav {
     display: flex;
     gap: 28px;
+    align-items: center;
     margin: auto;
 }
 
 .nav a {
     position: relative;
-
     padding: 23px 0;
-
     color: #bdc8d8;
-
     font-size: 11px;
 }
 
 .nav a.active::after {
     content: "";
-
     position: absolute;
     right: 0;
     bottom: 10px;
     left: 0;
-
     height: 2px;
-
     background: var(--color-red);
 }
-
+/* DESKTOP ACTIONS */
 .actions {
     display: flex;
     align-items: center;
@@ -258,6 +261,7 @@ h2 {
     display: none;
     border: 0;
     margin-left: auto;
+    justify-content: center;
     background: transparent;
     color: var(--color-light);
     cursor: pointer;
@@ -304,7 +308,6 @@ h2 {
 .btn.red {
     background: var(--color-red);
     color: var(--color-white);
-
     box-shadow: var(--shadow-red);
 }
 
@@ -399,19 +402,13 @@ h2 {
     z-index: 50;
     right: 18px;
     bottom: 18px;
-
     padding: 13px 17px;
-
     border-radius: var(--radius-md);
-
     background: var(--color-navy);
     color: var(--color-white);
-
     font-size: 10px;
-
     opacity: 0;
     transform: translateY(12px);
-
     transition:
         opacity var(--transition-fast),
         transform var(--transition-fast);
@@ -427,10 +424,6 @@ h2 {
 ========================================================= */
 
 @media (max-width: 900px) {
-    .header {
-        gap: 12px;
-        justify-self: center;
-    }
 
     .actions {
         display: none;
@@ -447,16 +440,13 @@ h2 {
     .nav {
         position: absolute;
         top: calc(100% + 10px);
-        right: 0;
-        left: 0;
-
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 4px;
         margin: 0;
         padding: 12px;
-
+        
         background: rgb(4 19 41 / 98%);
         border: 1px solid var(--color-border);
         border-radius: var(--radius-md);
@@ -466,11 +456,7 @@ h2 {
         visibility: hidden;
         pointer-events: none;
         transform: translateY(-8px);
-
-        transition:
-            opacity .2s ease,
-            transform .2s ease,
-            visibility .2s ease;
+        transition: all .2s ease;
     }
 
     .nav.show {
@@ -492,11 +478,6 @@ h2 {
 }
 
 @media (max-width: 480px) {
-    .header {
-        width: calc(100% - 20px);
-        min-height: 58px;
-        padding-inline: 10px;
-    }
 
     .brand {
         gap: 6px;
@@ -609,11 +590,6 @@ h2 {
         font-size: 65%;
     }
 
-    .header {
-        top: 7px;
-        width: calc(100% - 14px);
-        height: 56px;
-    }
     .actions {
         display: none;
     }
