@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animewonderous | Ticket Scanner</title>
+    <link rel="stylesheet" href="CSS/scanner.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+
+    <main class="scanner-container">
+
+        <header class="scanner-header">
+            <a href="index.html">ANIMEWONDEROUS</a>
+            <span>STAFF CHECK-IN</span>
+        </header>
+
+        <section class="scanner-content">
+
+            <p class="eyebrow">EVENT MANAGEMENT</p>
+            <h1>Ticket Scanner</h1>
+            <p class="description">
+                Scan an attendee's QR code to verify their admission.
+            </p>
+
+            <div class="event-selector">
+                <label for="event-select">Select event</label>
+                <select id="event-select">
+                    <option value="event-001">Enugu Shibuya Fest</option>
+                </select>
+            </div>
+
+            <div class="scanner-box">
+                <div id="reader"></div>
+            </div>
+
+            <p class="scanner-hint">
+                Position the ticket QR code inside the camera frame.
+            </p>
+
+            <div id="scan-result" class="scan-result">
+                <strong>Waiting for scan...</strong>
+                <p>Ticket information will appear here.</p>
+            </div>
+
+        </section>
+
+        <footer>
+            ANIMEWONDEROUS · EVENT STAFF PORTAL
+        </footer>
+
+    </main>
+
+    <script src="JS/scanner.js"></script>
+</body>
+</html>

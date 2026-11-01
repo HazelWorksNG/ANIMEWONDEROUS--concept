@@ -1,0 +1,138 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #041329;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.scanner-container {
+    width: min(100% - 32px, 600px);
+    margin: auto;
+}
+
+.scanner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #263751;
+}
+
+.scanner-header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.scanner-header span,
+.eyebrow {
+    color: #19d9ff;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.scanner-content {
+    padding: 55px 0;
+}
+
+h1 {
+    font-size: clamp(32px, 7vw, 46px);
+    margin: 10px 0;
+}
+
+.description,
+.scanner-hint {
+    color: #aab7ca;
+    line-height: 1.6;
+}
+
+.event-selector {
+    margin: 28px 0 18px;
+}
+
+.event-selector label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.event-selector select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #34445f;
+    border-radius: 8px;
+    background: #0b1e3b;
+    color: white;
+}
+
+.scanner-box {
+    background: #0b1e3b;
+    border: 1px solid #34445f;
+    border-radius: 14px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+#reader {
+    width: 100%;
+    border: none !important;
+}
+
+#reader video {
+    border-radius: 8px;
+}
+
+#reader button {
+    background: #f51e31;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+#reader select {
+    padding: 8px;
+    margin: 8px;
+}
+
+.scanner-hint {
+    text-align: center;
+    font-size: 12px;
+    margin: 15px 0 25px;
+}
+
+.scan-result {
+    background: #0b1e3b;
+    border: 1px solid #34445f;
+    border-radius: 12px;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+.scan-result p {
+    color: #aab7ca;
+    font-size: 13px;
+}
+
+.scan-result.success {
+    border-color: #35d58a;
+}
+
+.scan-result.error {
+    border-color: #f51e31;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+    color: #71819b;
+    font-size: 10px;
+}

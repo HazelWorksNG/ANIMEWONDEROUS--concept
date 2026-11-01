@@ -440,6 +440,373 @@
     transform: translateY(0);
 }
 
+/* =========================================================
+   ORDERS MANAGEMENT
+========================================================= */
+
+.orders-panel {
+    margin-top: 20px;
+}
+
+.orders-count {
+    color: var(--gold, #f4c64e);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.orders-toolbar {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0 20px;
+}
+
+.orders-toolbar .admin-search {
+    flex: 1;
+    min-width: 0;
+}
+
+.orders-toolbar select,
+.order-update select {
+    background: #0b1d38;
+    color: #fff;
+    border: 1px solid rgb(255 255 255 / 12%);
+    border-radius: 8px;
+    padding: 12px 15px;
+    outline: none;
+}
+
+.order-customer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-customer small,
+.order-item small {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.order-badge {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.order-badge.paid,
+.order-badge.completed {
+    background: rgb(34 197 94 / 12%);
+    color: #4ade80;
+}
+
+.order-badge.pending {
+    background: rgb(244 198 78 / 12%);
+    color: #f4c64e;
+}
+
+.order-badge.processing {
+    background: rgb(25 217 255 / 12%);
+    color: #19d9ff;
+}
+
+.order-badge.shipped {
+    background: rgb(99 102 241 / 15%);
+    color: #a5b4fc;
+}
+
+.order-badge.cancelled {
+    background: rgb(245 30 49 / 12%);
+    color: #fb7185;
+}
+
+.order-badge.pending {
+    color: #f4c64e;
+}
+
+.order-view-btn {
+    background: transparent;
+    border: 1px solid rgb(255 255 255 / 15%);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 13px;
+    cursor: pointer;
+}
+
+.order-view-btn:hover {
+    border-color: #f4c64e;
+    color: #f4c64e;
+}
+
+/* ORDER DETAILS */
+
+.order-details-panel {
+    margin-top: 20px;
+}
+
+.order-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.order-details-grid h3,
+.order-items-heading {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.order-details-grid p {
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.order-details-grid strong {
+    color: #fff;
+}
+
+.order-items-heading {
+    margin-top: 25px;
+}
+
+.order-items {
+    border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+.order-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 16px;
+}
+
+.order-total strong {
+    color: #f4c64e;
+}
+
+.order-update {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.order-update label {
+    width: 100%;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.orders-demo-note {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+/* EVENTS */
+
+.events-toolbar {
+    display: flex;
+    gap: 12px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.events-toolbar .admin-search {
+    flex: 1;
+    min-width: 180px;
+}
+
+.events-toolbar select {
+    min-width: 150px;
+}
+
+.event-admin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 190px;
+}
+
+.event-admin-info img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #17243a;
+}
+
+.event-admin-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-admin-info small {
+    color: #8994a8;
+    font-size: 11px;
+}
+
+.event-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #29354a;
+    color: #dce4f2;
+}
+
+.event-status.published {
+    background: rgba(25, 217, 255, 0.12);
+    color: #19d9ff;
+}
+
+.event-status.draft {
+    background: rgba(244, 198, 78, 0.12);
+    color: #f4c64e;
+}
+
+.event-status.completed {
+    background: rgba(90, 210, 140, 0.12);
+    color: #5ad28c;
+}
+
+.event-status.cancelled {
+    background: rgba(245, 30, 49, 0.12);
+    color: #f51e31;
+}
+
+.event-form-panel {
+    margin-top: 20px;
+}
+
+.events-demo-note {
+    margin-top: 20px;
+}
+
+
+/* TICKETS */
+
+.tickets-toolbar {
+    display: flex;
+    gap: 12px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.tickets-toolbar .admin-search {
+    flex: 1;
+    min-width: 180px;
+}
+
+.tickets-toolbar select {
+    min-width: 150px;
+}
+
+.ticket-reference {
+    display: block;
+    margin-top: 5px;
+    color: #8994a8;
+    font-size: 10px;
+}
+
+.ticket-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #29354a;
+    color: #dce4f2;
+}
+
+.ticket-status.active {
+    background: rgba(25, 217, 255, 0.12);
+    color: #19d9ff;
+}
+
+.ticket-status.used {
+    background: rgba(90, 210, 140, 0.12);
+    color: #5ad28c;
+}
+
+.ticket-status.cancelled {
+    background: rgba(245, 30, 49, 0.12);
+    color: #f51e31;
+}
+
+.tickets-demo-note {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .tickets-toolbar {
+        flex-direction: column;
+    }
+
+    .tickets-toolbar select {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .events-toolbar {
+        flex-direction: column;
+    }
+
+    .events-toolbar select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .orders-toolbar {
+        flex-direction: column;
+    }
+
+    .orders-toolbar select {
+        width: 100%;
+    }
+
+    .order-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-update {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .order-update select,
+    .order-update button {
+        width: 100%;
+    }
+}
+
 @media (max-width: 1050px) {
     .admin-stats {
         grid-template-columns: repeat(2, minmax(0, 1fr));
