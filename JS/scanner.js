@@ -1,4 +1,3 @@
-
 const resultBox = document.getElementById("scan-result");
 
 let scanner;
