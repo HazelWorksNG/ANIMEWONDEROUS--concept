@@ -423,6 +423,7 @@ h2 {
    17. TABLET
 ========================================================= */
 
+/* MOBILE NAVIGATION */
 @media (max-width: 900px) {
 
     .actions {
@@ -433,47 +434,92 @@ h2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        justify-self: center;
+        border: none;
+        background: transparent;
+        color: white;
         cursor: pointer;
+        z-index: 1102;
     }
 
     .nav {
-        position: absolute;
-        top: calc(100% + 10px);
+        position: fixed;
+        inset: 0;
+        z-index: 1101;
+
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 4px;
-        margin: 0;
-        padding: 12px;
-        
-        background: rgb(4 19 41 / 98%);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-        box-shadow: 0 12px 30px rgb(0 0 0 / 25%);
+        justify-content: flex-start;
+        gap: 12px;
 
-        opacity: 0;
-        visibility: hidden;
+        width: 100%;
+        height: 100dvh;
+        padding: 110px 25px 35px;
+
+        background: rgb(4 19 41 / 98%);
+
+        border: none;
+        border-radius: 0;
+
+        opacity: 1;
+        visibility: visible;
         pointer-events: none;
-        transform: translateY(-8px);
-        transition: all .2s ease;
+
+        clip-path: circle(0% at calc(100% - 35px) 35px);
+
+        transition:
+            clip-path .55s cubic-bezier(.77, 0, .18, 1),
+            visibility .55s ease;
+
+        overflow-y: auto;
     }
 
     .nav.show {
-        opacity: 1;
-        visibility: visible;
         pointer-events: auto;
-        transform: translateY(0);
+        clip-path: circle(150% at calc(100% - 35px) 35px);
     }
 
     .nav a {
         display: block;
-        padding: 12px;
-        white-space: normal;
+        width: 100%;
+        padding: 15px 12px;
+
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 1.8rem;
+
+        border-bottom: 1px solid rgb(255 255 255 / 8%);
     }
 
-    .nav a.active::after {
-        display: none;
+    .nav a:hover,
+    .nav a.active {
+        background: rgb(245 30 49 / 12%);
+        color: var(--color-red);
+    }
+}
+
+@media (max-width: 480px) {
+    .brand {
+        gap: 6px;
+    }
+
+    .brand strong {
+        font-size: 12px;
+    }
+
+    .brand small {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .mark {
+        font-size: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav {
+        transition: none;
     }
 }
 
@@ -640,4 +686,9 @@ h2 {
     .copyright {
         text-align: left;
     }
+}
+
+/* Prevent background scrolling when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
 }

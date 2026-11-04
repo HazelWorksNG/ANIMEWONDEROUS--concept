@@ -1,34 +1,83 @@
+
+/* =========================================================
+   HEADER & MOBILE NAVIGATION
+========================================================= */
+
 const menuButton = document.getElementById("menu-button");
 const navigation = document.getElementById("main-navigation");
-
-menuButton.addEventListener("click", () => {
-  const isOpen = navigation.classList.toggle("show");
-  menuButton.classList.toggle("active", isOpen);
-
-  menuButton.setAttribute("aria-expanded", isOpen);
-  menuButton.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation menu" : "Open navigation menu"
-  );
-});
-
 const header = document.querySelector(".header");
 
-let lastScrollY = window.scrollY;
+if (menuButton && navigation && header) {
 
-window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
+    // Toggle mobile navigation
+    menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("show");
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
-        header.classList.add("hide-header");
-    } else {
-        // Scrolling up
-        header.classList.remove("hide-header");
-    }
+        menuButton.classList.toggle("active", isOpen);
 
-    lastScrollY = currentScrollY;
-});
+        menuButton.setAttribute("aria-expanded", isOpen);
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+
+        document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    // Close menu when a navigation link is clicked
+    navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navigation.classList.remove("show");
+            menuButton.classList.remove("active");
+
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+
+            document.body.classList.remove("menu-open");
+        });
+    });
+
+    // Close menu with Escape
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            navigation.classList.remove("show");
+            menuButton.classList.remove("active");
+
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+
+            document.body.classList.remove("menu-open");
+        }
+    });
+
+    // Hide header on scroll down, reveal on scroll up
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+        const currentScrollY = window.scrollY;
+        const menuIsOpen = navigation.classList.contains("show");
+
+        if (menuIsOpen) {
+            header.classList.remove("hide-header");
+            lastScrollY = currentScrollY;
+            return;
+        }
+
+        if (currentScrollY <= 100) {
+            header.classList.remove("hide-header");
+        } 
+        else if (currentScrollY > lastScrollY) {
+            header.classList.add("hide-header");
+        } 
+        else if (currentScrollY < lastScrollY) {
+            header.classList.remove("hide-header");
+        }
+
+        lastScrollY = currentScrollY;
+    }, { passive: true });
+
+}
+
 
 /*
 ==========================================================
