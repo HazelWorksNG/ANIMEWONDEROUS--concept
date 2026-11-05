@@ -131,7 +131,6 @@ section.light {
     letter-spacing: 1.6px;
 }
 
-
 /* =========================================================
    4. TYPOGRAPHY
 ========================================================= */
@@ -284,6 +283,67 @@ h2 {
 
 .menu.active .icon-close {
   display: block;
+}
+
+.mobile-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 58px;
+    padding: 0 16px;
+    border: 1px solid rgb(255 255 255 / 15%);
+    border-radius: 14px;
+    background: rgb(255 255 255 / 4%);
+}
+
+.mobile-search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font: inherit;
+}
+
+.mobile-search-input::placeholder {
+    color: #8998af;
+}
+
+.account-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 8%);
+}
+
+.account-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.account-info strong {
+    font-size: 17px;
+}
+
+.account-info small {
+    color: #aab8cc;
+    font-size: 12px;
+}
+
+.account-arrow {
+    margin-left: auto;
+    font-size: 28px;
+    color: #aab8cc;
 }
 
 /* =========================================================
@@ -485,7 +545,7 @@ h2 {
 
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: stretch;
         gap: 8px;
 
@@ -494,20 +554,10 @@ h2 {
         height: 100dvh;
 
         margin: 0;
-        padding: 100px 30px 140px;
+        padding: 130px 24px 320px;
 
-        background:
-            radial-gradient(
-                circle at 90% 10%,
-                rgb(245 30 49 / 12%),
-                transparent 35%
-            ),
-            rgb(4 19 41 / 99%);
+        background: rgb(4 19 41 / 99%);
 
-        border: none;
-        border-radius: 0;
-
-        opacity: 1;
         visibility: hidden;
         pointer-events: none;
 
@@ -523,32 +573,25 @@ h2 {
     .nav.show {
         visibility: visible;
         pointer-events: auto;
-
         clip-path: circle(150vmax at calc(100% - 35px) 35px);
     }
 
+    /* Navigation links */
     .nav a {
         display: block;
         width: 100%;
-        padding: 14px 10px;
+        padding: 15px 10px;
 
         color: var(--color-white);
-        font-size: clamp(22px, 4vw, 32px);
+        font-size: 23px;
         font-weight: 700;
         text-decoration: none;
 
         border-bottom: 1px solid rgb(255 255 255 / 9%);
-
-        transition:
-            color .25s ease,
-            padding-left .25s ease;
     }
 
-    .nav a:hover,
     .nav a.active {
         color: var(--color-red);
-        padding-left: 20px;
-        background: transparent;
     }
 
     .nav a.active::after {
@@ -560,24 +603,22 @@ h2 {
 
     .actions {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 12px;
 
         position: fixed;
-        left: 20px;
-        right: 20px;
-        bottom: 30px;
+        left: 24px;
+        right: 24px;
+        bottom: 25px;
         z-index: 1102;
 
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
 
-        transition:
-            opacity .3s ease,
-            visibility .3s ease;
+        transition: all .3s ease;
     }
 
     .nav.show ~ .actions {
@@ -601,10 +642,37 @@ h2 {
         color: white;
     }
 
+    .actions .mobile-search {
+        width: 100%;
+        min-height: 58px;
+        justify-content: flex-start;
+        padding: 0 18px;
+        border: 1px solid rgb(255 255 255 / 15%);
+        border-radius: 14px;
+        background: rgb(255 255 255 / 4%);
+    }
+
+    /* Tickets */
     .actions .mobile-ticket {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+        min-height: 58px;
+    }
+
+    /* Account card — apply this class to your account element */
+    .actions .mobile-account {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 75px;
+        padding: 15px 18px;
+        border: 1px solid rgb(255 255 255 / 15%);
+        border-radius: 14px;
+        background: rgb(255 255 255 / 4%);
+        color: white;
     }
 
 
