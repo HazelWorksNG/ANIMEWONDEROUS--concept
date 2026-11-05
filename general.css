@@ -419,12 +419,29 @@ h2 {
     transform: translateY(0);
 }
 
+
 /* =========================================================
-   17. TABLET
+   ANIMEWONDEROUS — RESPONSIVE STYLESHEET
+   Desktop: 901px and above
+   Tablet:   900px and below
+   Mobile:   650px and below
+   Small:    480px and below
 ========================================================= */
 
-/* MOBILE NAVIGATION */
+
+/* =========================================================
+   01. TABLET & MOBILE
+========================================================= */
+
 @media (max-width: 900px) {
+
+    /* HEADER */
+
+    .header {
+        gap: 16px;
+        padding: 10px 18px;
+        z-index: 1100;
+    }
 
     .actions {
         display: none;
@@ -434,12 +451,39 @@ h2 {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-left: auto;
         border: none;
         background: transparent;
         color: white;
         cursor: pointer;
-        z-index: 1102;
+        position: relative;
+        z-index: 1103;
     }
+
+    .menu svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand {
+        position: relative;
+        z-index: 1103;
+    }
+
+    .icon-close {
+        display: none;
+    }
+
+    .menu.active .icon-hamburger {
+        display: none;
+    }
+
+    .menu.active .icon-close {
+        display: block;
+    }
+
+
+    /* FULLSCREEN MOBILE NAVIGATION */
 
     .nav {
         position: fixed;
@@ -449,204 +493,197 @@ h2 {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        justify-content: flex-start;
-        gap: 12px;
+        justify-content: center;
+        gap: 8px;
 
         width: 100%;
+        height: 100vh;
         height: 100dvh;
-        padding: 110px 25px 35px;
 
-        background: rgb(4 19 41 / 98%);
+        margin: 0;
+        padding: 100px 30px 145px;
+
+        background:
+            radial-gradient(
+                circle at 90% 10%,
+                rgb(245 30 49 / 12%),
+                transparent 35%
+            ),
+            rgb(4 19 41 / 99%);
 
         border: none;
         border-radius: 0;
 
         opacity: 1;
-        visibility: visible;
+        visibility: hidden;
         pointer-events: none;
 
-        clip-path: circle(0% at calc(100% - 35px) 35px);
+        clip-path: circle(0 at calc(100% - 35px) 35px);
 
         transition:
-            clip-path .55s cubic-bezier(.77, 0, .18, 1),
-            visibility .55s ease;
+            clip-path .65s cubic-bezier(.77, 0, .18, 1),
+            visibility .65s ease;
 
         overflow-y: auto;
     }
 
     .nav.show {
+        visibility: visible;
         pointer-events: auto;
-        clip-path: circle(150% at calc(100% - 35px) 35px);
+
+        clip-path: circle(150vmax at calc(100% - 35px) 35px);
     }
 
     .nav a {
         display: block;
         width: 100%;
-        padding: 15px 12px;
+        padding: 14px 10px;
 
-        color: var(--text-light);
+        color: var(--color-white);
+        font-size: clamp(22px, 4vw, 32px);
+        font-weight: 700;
         text-decoration: none;
-        font-size: 1.8rem;
 
-        border-bottom: 1px solid rgb(255 255 255 / 8%);
+        border-bottom: 1px solid rgb(255 255 255 / 9%);
+
+        transition:
+            color .25s ease,
+            padding-left .25s ease;
     }
 
     .nav a:hover,
     .nav a.active {
-        background: rgb(245 30 49 / 12%);
         color: var(--color-red);
-    }
-}
-
-@media (max-width: 480px) {
-    .brand {
-        gap: 6px;
+        padding-left: 20px;
+        background: transparent;
     }
 
-    .brand strong {
-        font-size: 12px;
-    }
-
-    .brand small {
-        font-size: 6px;
-        letter-spacing: 1px;
-    }
-
-    .mark {
-        font-size: 25px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .nav {
-        transition: none;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .brand {
-        gap: 6px;
-    }
-
-    .brand strong {
-        font-size: 12px;
-    }
-
-    .brand small {
-        font-size: 6px;
-        letter-spacing: 1px;
-    }
-
-    .mark {
-        font-size: 25px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-    .actions {
+    .nav a.active::after {
         display: none;
     }
 
-    .menu {
+
+    /* MENU ACTIONS */
+
+    .actions {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: none;
-        background: transparent;
-        color: white;
-        cursor: pointer;
-        z-index: 1100;
-    }
+        flex-wrap: wrap;
+        gap: 14px;
 
-    .nav {
-        position: absolute;
-        top: calc(100% + 0.75rem);
-        right: 1rem;
-        left: 1rem;
-
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        padding: 0.75rem;
-
-        background: rgba(7, 22, 47, 0.97);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-
-        box-shadow: var(--shadow-lg);
+        position: fixed;
+        left: 20px;
+        right: 20px;
+        bottom: 30px;
+        z-index: 1102;
 
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
         pointer-events: none;
 
         transition:
-            opacity 0.25s ease,
-            transform 0.25s ease,
-            visibility 0.25s ease;
-
-        z-index: 1000;
+            opacity .3s ease,
+            visibility .3s ease;
     }
 
-
-    /* Open state */
-    .nav.show {
-        display: flex;
+    .nav.show ~ .actions {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
         pointer-events: auto;
     }
 
+    .actions .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    .nav a {
-        width: 100%;
-        padding: 0.9rem 1rem;
+        width: 46px;
+        height: 46px;
 
-        border-radius: var(--radius-sm);
+        border: 1px solid rgb(255 255 255 / 15%);
+        border-radius: 50%;
 
-        color: var(--text-light);
-        text-decoration: none;
+        background: rgb(255 255 255 / 5%);
+        color: white;
+    }
 
-        transition:
-            background 0.2s ease,
-            color 0.2s ease;
+    .actions .mobile-ticket {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
 
-    .nav a:hover,
-    .nav a.active {
-        background: rgba(245, 30, 49, 0.12);
-        color: var(--color-red);
+    /* HERO */
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .hero-content {
+        width: calc(100% - 50px);
+    }
+
+
+    /* GENERAL LAYOUT */
+
+    .inner {
+        width: calc(100% - 40px);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
 
+
 /* =========================================================
-   18. MOBILE
+   02. MOBILE
 ========================================================= */
 
 @media (max-width: 650px) {
-    
-    html{
+
+    html {
         font-size: 65%;
     }
 
-    .actions {
-        display: none;
+    /* HEADER */
+
+    .header {
+        padding: 10px 15px;
+        gap: 10px;
     }
 
     .menu svg {
-        height: 24px;
-        width: 24px;
+        width: 26px;
+        height: 26px;
     }
+
+    .brand {
+        gap: 6px;
+    }
+
+    .brand strong {
+        font-size: 12px;
+    }
+
+    .brand small {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .mark {
+        font-size: 25px;
+    }
+
+
+    /* HERO */
 
     .hero {
         height: 680px;
+        min-height: 580px;
     }
 
     .hero-content {
@@ -671,9 +708,13 @@ h2 {
         flex-wrap: wrap;
     }
 
+
+    /* CONTENT */
+
     .inner {
         width: calc(100% - 34px);
     }
+
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -686,9 +727,61 @@ h2 {
     .copyright {
         text-align: left;
     }
+
 }
 
-/* Prevent background scrolling when mobile menu is open */
-body.menu-open {
-    overflow: hidden;
+
+/* =========================================================
+   03. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .header {
+        padding: 9px 12px;
+    }
+
+    .brand strong {
+        font-size: 11px;
+    }
+
+    .brand small {
+        font-size: 5.5px;
+    }
+
+    .mark {
+        font-size: 23px;
+    }
+
+    .nav {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .nav a {
+        font-size: 2.2rem;
+    }
+
+    .hero-content {
+        width: calc(100% - 30px);
+    }
+
+}
+
+
+/* =========================================================
+   04. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
 }
