@@ -288,43 +288,6 @@
     ====================================================== -->
 
     <script>
-
-        /* MOBILE MENU */
-
-        const menuButton =
-            document.getElementById("menu-button");
-
-        const navigation =
-            document.getElementById("main-navigation");
-
-
-        menuButton.addEventListener("click", () => {
-
-            const isOpen =
-                navigation.classList.toggle("show");
-
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-
-            menuButton.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-
-            menuButton.textContent =
-                isOpen ? "✕" : "☰";
-
-        });
-
-
-
         /* CATEGORY FILTER */
 
         const categoryButtons =
@@ -379,6 +342,6 @@
             });
 
     </script>
-
+    <script src="index.js"></script>
 </body>
 </html>

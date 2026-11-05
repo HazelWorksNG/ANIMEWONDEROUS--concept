@@ -446,33 +446,6 @@
         </div>
     </footer>
 
-
-    <script>
-        const menuButton = document.getElementById("menu-button");
-        const navigation = document.getElementById("main-navigation");
-
-        if (menuButton && navigation) {
-            menuButton.addEventListener("click", () => {
-                const isOpen = navigation.classList.toggle("show");
-
-                menuButton.classList.toggle("active", isOpen);
-                menuButton.setAttribute("aria-expanded", String(isOpen));
-                menuButton.setAttribute(
-                    "aria-label",
-                    isOpen ? "Close navigation menu" : "Open navigation menu"
-                );
-            });
-
-            navigation.querySelectorAll("a").forEach(link => {
-                link.addEventListener("click", () => {
-                    navigation.classList.remove("show");
-                    menuButton.classList.remove("active");
-                    menuButton.setAttribute("aria-expanded", "false");
-                    menuButton.setAttribute("aria-label", "Open navigation menu");
-                });
-            });
-        }
-    </script>
-
+    <script src="index.js"></script>
 </body>
 </html>
