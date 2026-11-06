@@ -287,6 +287,7 @@ h2 {
 
 .mobile-search-wrapper {
     display: flex;
+    position: relative;
     align-items: center;
     gap: 12px;
     width: 100%;
@@ -305,6 +306,7 @@ h2 {
     background: transparent;
     color: white;
     font: inherit;
+    display: none;
 }
 
 .mobile-search-input::placeholder {
