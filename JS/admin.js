@@ -433,7 +433,6 @@ function renderDashboard() {
     `;
 }
 
-
 /* =========================================================
    8. PRODUCTS
 ========================================================= */
@@ -481,7 +480,6 @@ function renderProducts() {
         </section>
     `;
 }
-
 
 function renderProductTable(list) {
     if (!list.length) {
@@ -560,7 +558,6 @@ function renderProductTable(list) {
         </div>
     `;
 }
-
 
 function renderProductForm(product = null) {
     return `
@@ -672,7 +669,6 @@ function renderProductForm(product = null) {
     `;
 }
 
-
 function editProduct(id) {
     const product = products.find(item => item.id === id);
     if (!product) return;
@@ -692,7 +688,6 @@ function editProduct(id) {
 
     document.getElementById("product-name")?.focus();
 }
-
 
 function addOrUpdateProduct(form) {
     const formData = new FormData(form);
@@ -735,7 +730,6 @@ function addOrUpdateProduct(form) {
     renderProducts();
     notify("Product saved successfully!");
 }
-
 
 function filterProducts() {
     const query = (

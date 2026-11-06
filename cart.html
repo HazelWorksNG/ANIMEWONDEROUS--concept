@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart — Animewonderous</title>
+
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="CSS/cart.css">
+
+    <script src="JS/loader.js" defer></script>
+    <script src="JS/cart.js" defer></script>
+    <script src="JS/cart-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="page-loader" aria-hidden="false">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="mark">✦</span>
+            </div>
+
+            <div class="loader-brand">
+                <strong>ANIMEWONDEROUS</strong>
+                <small>THE HOME OF OTAKUS</small>
+            </div>
+
+            <div class="loader-progress">
+                <span></span>
+            </div>
+
+            <small class="loader-message">
+                PREPARING YOUR EXPERIENCE...
+            </small>
+        </div>
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a class="brand" href="index.html">
+            <span class="mark">卐</span>
+
+            <span>
+                <strong>ANIMEWONDEROUS</strong>
+                <small>THE HOME OF OTAKUS</small>
+            </span>
+        </a>
+
+        <nav class="nav" id="main-navigation">
+            <a href="index.html">Home</a>
+            <a href="event.html">Events</a>
+            <a href="shop.html">Shop</a>
+            <a href="community.html">Community</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="actions">
+
+            <a class="icon cart-link active" href="cart.html"
+               aria-label="Shopping Cart">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     height="24px" viewBox="0 -960 960 960"
+                     width="24px" fill="#fff">
+                    <path d="M223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5-56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Z"/>
+                </svg>
+
+                <span class="cart-count" aria-live="polite">0</span>
+            </a>
+
+            <a class="btn red" href="#tickets">Get Tickets →</a>
+
+        </div>
+
+        <button class="menu" type="button"
+                aria-label="Open navigation menu"
+                aria-controls="main-navigation"
+                aria-expanded="false"
+                id="menu-button">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- CART PAGE -->
+    <main class="cart-page">
+
+        <section class="cart-heading">
+            <div>
+                <p class="cart-eyebrow">YOUR SELECTION</p>
+                <h1>Shopping Cart</h1>
+                <p>All your favourite finds, in one place.</p>
+            </div>
+
+            <a href="shop.html" class="continue-shopping">
+                ← Continue Shopping
+            </a>
+        </section>
+
+
+        <section class="cart-layout">
+
+            <!-- CART ITEMS -->
+            <div class="cart-main">
+
+                <div class="cart-list-heading">
+                    <h2>Your Items <span id="cart-item-count">(0)</span></h2>
+
+                    <button type="button" id="clear-cart"
+                            class="clear-cart">
+                        Clear Cart
+                    </button>
+                </div>
+
+                <div id="cart-items" class="cart-items">
+
+                    <!-- Products are rendered here by JavaScript -->
+
+                </div>
+
+                <!-- EMPTY CART -->
+                <div class="empty-cart" id="empty-cart" hidden>
+                    <div class="empty-cart-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 -960 960 960"
+                             width="64" height="64" fill="currentColor">
+                            <path d="M223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5 56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Z"/>
+                        </svg>
+                    </div>
+
+                    <h2>Your cart is empty</h2>
+
+                    <p>Looks like you haven't found your next favourite yet.</p>
+
+                    <a href="shop.html" class="btn red">
+                        Explore the Shop →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+            <aside class="cart-summary" id="cart-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-line">
+                    <span>Items</span>
+                    <strong id="summary-quantity">0</strong>
+                </div>
+
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <strong id="cart-subtotal">₦0</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong id="cart-total">₦0</strong>
+                </div>
+
+                <p class="summary-note">
+                    Delivery fees, if applicable, will be calculated at checkout.
+                </p>
+
+                <button type="button" class="checkout-btn" id="checkout-button">
+                    Proceed to Checkout
+                    <span>→</span>
+                </button>
+
+                <div class="secure-checkout">
+                    <span>✦</span>
+                    Checkout will be available soon.
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+
+            <a class="brand" href="index.html">
+                <span class="mark">TT</span>
+                <span>
+                    <strong>ANIMEWONDEROUS</strong>
+                    <small>THE HOME OF OTAKUS</small>
+                </span>
+            </a>
+
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="event.html">Events</a>
+                <a href="shop.html">Shop</a>
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="social">
+                <a href="#" class="social-links y"></a>
+                <a href="#" class="social-links tt"></a>
+                <a href="#" class="social-links"></a>
+                <a href="#" class="social-links"></a>
+                <a href="#" class="social-links"></a>
+            </div>
+
+            <small class="copyright">
+                © 2026 Animewonderous. All rights reserved.
+            </small>
+
+        </div>
+    </footer>
+
+
+    <script src="index.js"></script>
+    <script src="JS/header.js" defer></script>
+
+</body>
+</html>
