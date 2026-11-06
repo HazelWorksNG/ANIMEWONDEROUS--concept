@@ -10,11 +10,31 @@
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="CSS/login-register.css">
 
+    <script src="JS/loader.js" defer></script>
     <script src="JS/login.js" defer></script>
 </head>
 
 <body class="auth-page">
+    <div class="page-loader" id="page-loader" aria-hidden="false">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="mark">✦</span>
+            </div>
 
+            <div class="loader-brand">
+                <strong>ANIMEWONDEROUS</strong>
+                <small>THE HOME OF OTAKUS</small>
+            </div>
+
+            <div class="loader-progress">
+                <span></span>
+            </div>
+
+            <small class="loader-message">
+                PREPARING YOUR EXPERIENCE...
+            </small>
+        </div>
+    </div>
     <main class="auth-layout">
 
         <!-- LEFT: BRANDING -->
