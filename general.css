@@ -131,6 +131,147 @@ section.light {
     letter-spacing: 1.6px;
 }
 
+/* =========================================
+   PAGE LOADER
+========================================= */
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #041329;
+    color: white;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+.page-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Logo */
+
+.loader-logo {
+    display: grid;
+    place-items: center;
+
+    width: 85px;
+    height: 85px;
+
+    margin-bottom: 25px;
+
+    border-radius: 22px;
+    background: rgb(255 255 255 / 5%);
+
+    animation: loaderPulse 1.8s ease-in-out infinite;
+}
+
+.loader-logo .mark {
+    font-size: 48px;
+    color: var(--color-red);
+}
+
+/* Branding */
+
+.loader-content h2 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.loader-content p {
+    margin-top: 7px;
+    color: #aab8cc;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+/* Progress bar */
+
+.loader-progress {
+    width: 180px;
+    height: 3px;
+
+    margin-top: 35px;
+
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgb(255 255 255 / 10%);
+}
+
+.loader-progress span {
+    display: block;
+    width: 40%;
+    height: 100%;
+
+    background: var(--color-red);
+    border-radius: inherit;
+
+    animation: loaderProgress 1.4s ease-in-out infinite;
+}
+
+.loader-content > small {
+    margin-top: 15px;
+    color: #71829c;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* Animations */
+
+@keyframes loaderPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 transparent;
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 30px rgb(245 30 49 / 15%);
+    }
+}
+
+@keyframes loaderProgress {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    100% {
+        transform: translateX(350%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-logo,
+    .loader-progress span {
+        animation: none;
+    }
+
+    .page-loader {
+        transition: none;
+    }
+}
+
 /* =========================================================
    4. TYPOGRAPHY
 ========================================================= */

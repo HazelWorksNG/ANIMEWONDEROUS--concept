@@ -1,3 +1,22 @@
+// =========================================
+// PAGE LOADER
+// =========================================
+
+const pageLoader = document.getElementById("page-loader");
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        pageLoader.classList.add("is-hidden");
+
+        setTimeout(() => {
+            pageLoader.remove();
+        }, 750);
+
+    }, 500);
+
+});
 
 /* =========================================================
    HEADER & MOBILE NAVIGATION
