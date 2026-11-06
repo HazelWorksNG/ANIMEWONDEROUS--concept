@@ -158,98 +158,316 @@ h2 {
 
 /* =========================================================
    5. HEADER
+==
+/* =========================================================
+   ANIMEWONDEROUS — HEADER
 ========================================================= */
 
 .header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1100;
+    z-index: 1200;
 
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 30px;
 
     width: 100%;
-    padding: 9px 18px;
+    min-height: 76px;
+    padding: 10px 28px;
+    box-sizing: border-box;
 
-    border: 1px solid rgb(255 255 255 / 10%);
-    background: rgb(4 19 41 / 94%);
+    background: rgb(4 19 41 / 96%);
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
     backdrop-filter: blur(15px);
 
-    color: var(--color-white);
+    color: var(--color-white, #fff);
+
     transition: transform .3s ease;
 }
 
-/* Hide header when scrolling down */
 .header.hide-header {
-    transform: translateY(-104%);
-}  
+    transform: translateY(-110%);
+}
+
+
+/* BRAND */
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
+
+    flex-shrink: 0;
     min-width: max-content;
+
+    color: white;
     text-decoration: none;
 }
 
 .mark {
-    color: var(--color-red);
+    color: var(--color-red, #f51e31);
     font-size: 30px;
 }
 
-.brand strong {
+.brand-text strong {
     display: block;
-
-    font-family:
-        "Arial Narrow",
-        Impact,
-        Haettenschweiler,
-        sans-serif;
-
+    font-family: "Arial Narrow", Impact, sans-serif;
     font-size: 15px;
+    letter-spacing: .5px;
 }
 
-.brand small {
+.brand-text small {
     display: block;
+    margin-top: 3px;
     color: #b9c4d4;
     font-size: 7px;
     letter-spacing: 2px;
 }
 
+
+/* DESKTOP MENU PANEL */
+
+.mobile-menu-panel {
+    display: contents;
+}
+
+
+/* NAVIGATION */
+
 .nav {
     display: flex;
-    gap: 28px;
     align-items: center;
-    margin: auto;
+    justify-content: center;
+    gap: clamp(16px, 2.5vw, 32px);
+
+    margin: 0 auto;
 }
 
 .nav a {
     position: relative;
-    padding: 23px 0;
+    padding: 12px 0;
+
     color: #bdc8d8;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: white;
 }
 
 .nav a.active::after {
     content: "";
     position: absolute;
-    right: 0;
-    bottom: 10px;
+    bottom: 3px;
     left: 0;
+
+    width: 100%;
     height: 2px;
-    background: var(--color-red);
+
+    background: var(--color-red, #f51e31);
 }
-/* DESKTOP ACTIONS */
+
+
+/* ACTIONS */
+
 .actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: flex-end;
+    gap: 16px;
+
+    flex-shrink: 0;
 }
 
-.icon {
-    color: var(--color-white);
+.header-cart,
+.header-account,
+.search-toggle,
+.search-close {
+    display: grid;
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-cart,
+.header-account {
+    position: relative;
+}
+
+.header-cart svg,
+.header-account svg,
+.search-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -2px;
+    right: -5px;
+
+    display: grid;
+    place-items: center;
+
+    min-width: 17px;
+    height: 17px;
+    padding: 0 3px;
+    box-sizing: border-box;
+
+    border-radius: 50%;
+    background: var(--color-red, #f51e31);
+
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* TICKET BUTTON */
+
+.header-ticket {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+    padding: 0 17px;
+
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-box input {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: white;
+    font: inherit;
+
+    transition:
+        width .35s ease,
+        opacity .25s ease,
+        padding .35s ease;
+}
+
+.search-box input::placeholder {
+    color: #8998af;
+}
+
+.search-close {
+    display: none;
+    font-size: 28px;
+}
+
+
+/* EXPANDED SEARCH MODE */
+
+.header.search-open .nav {
+    display: none;
+}
+
+.header.search-open .header-cart,
+.header.search-open .header-account,
+.header.search-open .header-ticket {
+    display: none;
+}
+
+.header.search-open .mobile-menu-panel {
+    display: contents;
+}
+
+.header.search-open .actions {
+    flex: 1;
+    min-width: 0;
+}
+
+.header.search-open .search-box {
+    flex: 1;
+    width: 100%;
+}
+
+.header.search-open .search-box input {
+    flex: 1;
+    width: 100%;
+    padding: 12px 15px;
+
+    opacity: 1;
+    visibility: visible;
+
+    border: 1px solid rgb(255 255 255 / 15%);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 5%);
+}
+
+.header.search-open .search-close {
+    display: grid;
+}
+
+
+/* HAMBURGER */
+
+.menu {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+    padding: 7px;
+
+    border: none;
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+}
+
+.menu svg {
+    width: 27px;
+    height: 27px;
+}
+
+.menu .icon-close {
+    display: none;
+}
+
+.menu.active .icon-hamburger {
+    display: none;
+}
+
+.menu.active .icon-close {
+    display: block;
 }
 
 /* =========================================
@@ -482,121 +700,97 @@ h2 {
 }
 
 /* =========================================================
-   01. TABLET & MOBILE — FULLSCREEN NAVIGATION
+   TABLET & MOBILE
 ========================================================= */
-
 @media (max-width: 900px) {
 
-    /* HEADER */
-
     .header {
-        gap: 16px;
-        padding: 10px 18px;
+        min-height: 68px;
+        padding: 9px 18px;
+        gap: 12px;
     }
 
     .brand {
         position: relative;
-        z-index: 1103;
+        z-index: 1203;
     }
-
-    /* HAMBURGER BUTTON */
 
     .menu {
-        display: flex;
+        display: grid;
+        place-items: center;
+
         position: relative;
-        z-index: 1103;
-        align-items: center;
-        justify-content: center;
+        z-index: 1203;
 
         margin-left: auto;
-        padding: 5px;
-
-        border: none;
-        background: transparent;
-        color: white;
-        cursor: pointer;
-    }
-
-    .menu svg {
-        width: 30px;
-        height: 30px;
-    }
-
-    .menu .icon-close {
-        display: none;
-    }
-
-    .menu.active .icon-hamburger {
-        display: none;
-    }
-
-    .menu.active .icon-close {
-        display: block;
     }
 
 
-    /* FULLSCREEN NAVIGATION */
+    /* MOBILE FULLSCREEN PANEL */
 
-    .nav {
+    .mobile-menu-panel {
         position: fixed;
         inset: 0;
-        z-index: 1101;
+        z-index: 1201;
 
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        justify-content: flex-start;
-        gap: 8px;
+        gap: 28px;
 
         width: 100%;
         height: 100vh;
         height: 100dvh;
 
-        margin: 0;
-        padding: 130px 24px 300px;
+        padding: 105px 25px 28px;
         box-sizing: border-box;
 
         overflow-y: auto;
         overscroll-behavior: contain;
 
-        background: rgb(4 19 41 / 99%);
+        background: #041329;
 
+        opacity: 0;
         visibility: hidden;
         pointer-events: none;
 
-        clip-path: circle(0 at calc(100% - 35px) 35px);
+        transform: translateY(-10px);
 
         transition:
-            clip-path .65s cubic-bezier(.77, 0, .18, 1),
-            visibility 0s linear .65s;
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
     }
 
-    .nav.show {
+    .header.menu-open .mobile-menu-panel {
+        opacity: 1;
         visibility: visible;
         pointer-events: auto;
+        transform: translateY(0);
+    }
 
-        clip-path: circle(150vmax at calc(100% - 35px) 35px);
 
-        transition:
-            clip-path .65s cubic-bezier(.77, 0, .18, 1),
-            visibility 0s;
+    /* MOBILE NAV LINKS */
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        width: 100%;
+        margin: 0;
     }
 
     .nav a {
         display: block;
         width: 100%;
-        padding: 15px 10px;
+        padding: 17px 5px;
 
         border-bottom: 1px solid rgb(255 255 255 / 9%);
 
-        color: var(--color-white);
-        font-size: 23px;
+        font-size: 22px;
         font-weight: 700;
-        text-decoration: none;
-    }
-
-    .nav a.active {
-        color: var(--color-red);
     }
 
     .nav a.active::after {
@@ -607,201 +801,144 @@ h2 {
     /* MOBILE ACTIONS */
 
     .actions {
-        position: fixed;
-        left: 24px;
-        right: 24px;
-        bottom: 25px;
-        z-index: 1102;
-
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
-
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-
-        transition:
-            opacity .3s ease,
-            visibility .3s ease;
-    }
-
-    .nav.show ~ .actions {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-
-    /* SEARCH BAR */
-
-    .mobile-search-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+        gap: 14px;
 
         width: 100%;
-        min-height: 58px;
+        margin-top: auto;
+    }
+
+
+    /* MOBILE SEARCH IS ALWAYS EXPANDED */
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 56px;
         padding: 0 12px;
         box-sizing: border-box;
 
         border: 1px solid rgb(255 255 255 / 15%);
-        border-radius: 14px;
+        border-radius: 12px;
         background: rgb(255 255 255 / 4%);
     }
 
-    .actions .mobile-search {
-        display: grid;
-        flex: 0 0 42px;
-        place-items: center;
-
-        width: 42px;
-        height: 42px;
-        padding: 0;
-
-        border: none;
-        border-radius: 50%;
-        background: transparent;
-        color: white;
-        cursor: pointer;
-    }
-
-    .mobile-search svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    .mobile-search-input {
+    .search-box input {
         flex: 1;
+        width: auto;
         min-width: 0;
+        padding: 10px 8px;
 
-        border: none;
-        outline: none;
-        background: transparent;
-
-        color: white;
-        font: inherit;
+        opacity: 1;
+        visibility: visible;
     }
 
-    .mobile-search-input::placeholder {
-        color: #8998af;
+    .search-close {
+        display: none !important;
+    }
+
+    .search-toggle {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
     }
 
 
-    /* TICKET BUTTON */
+    /* CART */
 
-    .actions .mobile-ticket {
+    .header-cart {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+
+        width: 100%;
+        min-height: 54px;
+        padding: 0 12px;
+        box-sizing: border-box;
+
+        border: 1px solid rgb(255 255 255 / 15%);
+        border-radius: 12px;
+        background: rgb(255 255 255 / 4%);
+    }
+
+    .header-cart::after {
+        content: "Shopping Cart";
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .cart-count {
+        position: static;
+        margin-left: auto;
+    }
+
+
+    /* ACCOUNT */
+
+    .header-account {
         display: flex;
         align-items: center;
         justify-content: center;
 
         width: 100%;
-        min-height: 58px;
-    }
-
-
-    /* ACCOUNT CARD */
-
-    .actions .mobile-account {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-
-        width: 100%;
-        min-height: 75px;
-        padding: 15px 18px;
-        box-sizing: border-box;
+        min-height: 54px;
 
         border: 1px solid rgb(255 255 255 / 15%);
-        border-radius: 14px;
+        border-radius: 12px;
         background: rgb(255 255 255 / 4%);
-
-        color: white;
-        text-decoration: none;
     }
 
-    .account-icon {
-        display: grid;
-        flex: 0 0 48px;
-        place-items: center;
-
-        width: 48px;
-        height: 48px;
-
-        border-radius: 50%;
-        background: rgb(255 255 255 / 8%);
+    .header-account::after {
+        content: "My Account";
+        margin-left: 12px;
+        font-size: 14px;
+        font-weight: 600;
     }
 
-    .account-icon svg {
-        width: 25px;
-        height: 25px;
-    }
 
-    .account-info {
+    /* TICKET BUTTON */
+
+    .header-ticket {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .account-info strong {
-        font-size: 17px;
-    }
-
-    .account-info small {
-        color: #aab8cc;
-        font-size: 12px;
-    }
-
-    .account-arrow {
-        margin-left: auto;
-        color: #aab8cc;
-        font-size: 28px;
+        width: 100%;
+        min-height: 56px;
+        box-sizing: border-box;
     }
 
 
-    /* GENERAL PAGE LAYOUT */
+    /* SEARCH EXPANDED MODE DOES NOT AFFECT MOBILE PANEL */
 
-    .hero {
-        min-height: 620px;
+    .header.search-open .nav {
+        display: flex;
     }
 
-    .hero-content {
-        width: calc(100% - 50px);
+    .header.search-open .header-cart,
+    .header.search-open .header-account,
+    .header.search-open .header-ticket {
+        display: flex;
     }
 
-    .inner {
-        width: calc(100% - 40px);
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .header.search-open .actions {
+        flex: initial;
     }
 }
 
-
 /* =========================================================
-   02. MOBILE
+   SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 650px) {
-
-    html {
-        font-size: 65%;
-    }
+@media (max-width: 480px) {
 
     .header {
-        gap: 10px;
-        padding: 9px 15px;
-    }
-
-    .menu svg {
-        width: 26px;
-        height: 26px;
+        padding: 9px 13px;
     }
 
     .brand {
-        gap: 6px;
+        gap: 7px;
     }
 
     .brand strong {
@@ -817,113 +954,37 @@ h2 {
         font-size: 25px;
     }
 
-
-    /* HERO */
-
-    .hero {
-        height: 680px;
-        min-height: 580px;
-    }
-
-    .hero-content {
-        width: calc(100% - 38px);
-        margin-top: 60px;
-    }
-
-    .jp {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: clamp(49px, 15vw, 78px);
-        letter-spacing: -2px;
-    }
-
-    .hero h1 .redword {
-        transform: translateX(15px);
-    }
-
-    .hero-buttons {
-        flex-wrap: wrap;
-    }
-
-
-    /* CONTENT */
-
-    .inner {
-        width: calc(100% - 34px);
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .links {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .copyright {
-        text-align: left;
-    }
-}
-
-
-/* =========================================================
-   03. SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .header {
-        padding: 9px 12px;
-    }
-
-    .brand strong {
-        font-size: 11px;
-    }
-
-    .brand small {
-        font-size: 5.5px;
-    }
-
-    .mark {
-        font-size: 23px;
-    }
-
-    .nav {
-        padding-left: 22px;
-        padding-right: 22px;
+    .mobile-menu-panel {
+        padding: 95px 20px 22px;
+        gap: 20px;
     }
 
     .nav a {
-        font-size: 2.2rem;
-    }
-
-    .hero-content {
-        width: calc(100% - 30px);
-    }
-
-    .actions {
-        left: 18px;
-        right: 18px;
-        bottom: 18px;
+        padding: 15px 5px;
+        font-size: 20px;
     }
 }
 
 
 /* =========================================================
-   04. REDUCED MOTION
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+    .header,
+    .mobile-menu-panel,
+    .search-box input {
+        transition: none !important;
     }
+}
+
+/* Respect hidden attributes even when component styles specify display */
+.header [hidden] {
+    display: none !important;
+}
+
+/* Prevent background scrolling while mobile menu is open */
+body.menu-is-open {
+    overflow: hidden;
 }

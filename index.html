@@ -32,66 +32,140 @@
   </div>
 
   <!-- HEADER -->
-  <header class="header">
-    <a class="brand" href="index.html">
-      <span class="mark">卐</span>
-      <span><strong>ANIMEWONDEROUS</strong><small>THE HOME OF OTAKUS</small></span>
-    </a>
+  <header class="header" id="site-header" data-authenticated="false" data-tickets-available="true" data-show-ticket-button="true">
 
-    <nav class="nav" id="main-navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="event.html">Events</a>
-      <a href="shop.html">Shop</a>
-      <a href="community.html">Community</a>
-      <a href="about.html">About</a>
-    </nav>
+      <!-- BRAND -->
+      <a class="brand" href="index.html">
+          <span class="mark">卐</span>
 
-    <div class="actions">
-      <!-- Search -->
-      <div class="mobile-search-wrapper">
-        <button type="button" class="icon mobile-search" aria-label="Search">
-            <svg><!-- Search icon --></svg>
-        </button>
+          <span class="brand-text">
+              <strong>ANIMEWONDEROUS</strong>
+              <small>THE HOME OF OTAKUS</small>
+          </span>
+      </a>
 
-        <input
-            type="search"
-            class="mobile-search-input"
-            placeholder="Search anime, events, merch..."
-            aria-label="Search anime, events and merchandise"
-        >
+
+      <!-- MOBILE MENU PANEL -->
+      <div class="mobile-menu-panel" id="mobile-menu-panel">
+
+          <!-- MAIN NAVIGATION -->
+          <nav class="nav" id="main-navigation">
+              <a class="active" href="index.html">Home</a>
+              <a href="event.html">Events</a>
+              <a href="shop.html">Shop</a>
+              <a href="community.html">Community</a>
+              <a href="about.html">About</a>
+          </nav>
+
+
+          <!-- HEADER ACTIONS -->
+          <div class="actions" id="header-actions">
+
+              <!-- SEARCH -->
+              <form class="search-box" id="header-search" action="search.html" method="GET">
+
+                  <button
+                      type="button"
+                      class="search-toggle"
+                      id="search-toggle"
+                      aria-label="Open search"
+                      aria-expanded="false"
+                  >
+                      <svg class="search-icon" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round">
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m20 20-4-4"></path>
+                      </svg>
+                  </button>
+
+                  <input
+                      type="search"
+                      name="q"
+                      id="header-search-input"
+                      placeholder="Search anime, events, merchandise..."
+                      aria-label="Search Animewonderous"
+                  >
+
+                  <button
+                      type="button"
+                      class="search-close"
+                      id="search-close"
+                      aria-label="Close search"
+                  >
+                      &times;
+                  </button>
+
+              </form>
+
+
+              <!-- CART -->
+              <a href="cart.html" class="header-cart" aria-label="Shopping cart">
+                  <svg viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="9" cy="21" r="1"></circle>
+                      <circle cx="20" cy="21" r="1"></circle>
+                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  <span class="cart-count" id="cart-count">0</span>
+              </a>
+
+
+              <!-- ACCOUNT ICON -->
+              <a
+                  href="account.html"
+                  class="header-account"
+                  id="header-account"
+                  aria-label="My account"
+                  hidden
+              >
+                  <svg viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="8" r="4"></circle>
+                      <path d="M4 21a8 8 0 0 1 16 0"></path>
+                  </svg>
+              </a>
+
+
+              <!-- TICKET BUTTON -->
+              <a
+                  href="ticket.html"
+                  class="btn red header-ticket"
+                  id="header-ticket"
+              >
+                  Get Tickets <span>↗</span>
+              </a>
+
+          </div>
       </div>
-      <!-- Tickets -->
-      <a class="btn red mobile-ticket" href="ticket.html">
-          Get Tickets ↗
-      </a>
-      <!-- Account -->
-      <a href="account.html" class="mobile-account">
-          <span class="account-icon">
-              <!-- Keep or add your user SVG here -->
-              <svg><!-- User icon --></svg>
-          </span>
 
-          <span class="account-info">
-              <strong>My Account</strong>
-              <small>Profile, orders &amp; settings</small>
-          </span>
 
-          <span class="account-arrow">›</span>
-      </a>
-    </div>
+      <!-- MOBILE MENU BUTTON -->
+      <button
+          class="menu"
+          id="menu-button"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobile-menu-panel"
+          aria-expanded="false"
+      >
+          <svg class="icon-hamburger" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M3 6h18M3 12h18M3 18h18"></path>
+          </svg>
 
-    <button class="menu" type="button" aria-label="Open navigation menu" aria-controls="main-navigation" aria-expanded="false" id="menu-button">
-      <!-- Hamburger Icon (Shown when closed) -->
-      <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffffff">
-        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
-      </svg>
+          <svg class="icon-close" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="m18 6-12 12M6 6l12 12"></path>
+          </svg>
+      </button>
 
-      <!-- Close Icon (Shown when active/open) -->
-      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffffff">
-        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
-      </svg>
-    </button>
-  </header> 
+  </header>
+ 
 
   <!-- MAIN CONTENT -->
   <main id="home">
@@ -307,6 +381,7 @@
   <div class="toast" id="toast">Demo button — connect this to your backend later.</div>
   <script src="JS/loader.js"></script>
   <script src="index.js"></script>
+  <script src="JS/header.js" defer></script>
 
 </body>
 </html>
